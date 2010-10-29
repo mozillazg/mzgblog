@@ -1,0 +1,50 @@
+﻿{% extends "base.html" %}
+{% block title %} {{tag}} - {{blog.title}} {% endblock %}
+{% block content %}
+  
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+
+	<div class="boxcaption"><h3>Archives</h3></div>
+
+	<div class="box">
+		Articles with tags: &#8216;{{tag}}&#8217; </div>
+        
+        {% for entry in entries %}
+			<div class="post">
+			<h2><a class="title" href="/{{entry.link|escape}}" >{{entry.title|escape}}</a></h2>
+			<div class="info">
+				<span class="date">{{ entry.date|datetz:"F jS, Y " }}</span>
+
+												<span class="comments"><a href="/{{entry.link|escape}}#comments" title="{{entry.title|escape}}">{{entry.commentcount}} Comments</a></span>
+				<div class="fixed"></div>
+			</div>
+            </div>
+        {% endfor %}
+
+
+<div id="pagenavi">
+			<div class="wp-pagenavi">
+{% if pager.prev %}<a href="?page={{ pager.prev}}" >&laquo;Previous Page</a>{% endif %}
+{% if pager.next %}<a href="?page={{ pager.next }}" >&raquo;Next Page</a>{% endif %}
+            </div>
+
+		<div class="fixed"></div>
+</div>
+
+	</div>
+	<!-- main END -->
+
+
+	
+{% include "sidebar.html" %}
+    
+	<div class="fixed"></div>
+</div>
+  
+
+   
+{% endblock %}

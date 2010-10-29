@@ -1,0 +1,68 @@
+﻿{% extends "base.html" %}
+
+{% block head_block %}
+<meta name="verify-v1" content="EjkoZwrUyHnlwjyUkbFXVJ2Ioms9m4NTUETFhrIyoNY=" />
+<meta name="Keywords" content="colin-young,colin-young.appspot.com,physics,software">
+<meta name="Description" content="This is Colin Young! Welcome to my blog!">
+
+{% endblock %}
+
+{% block content %}
+
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+			{% for entry in entries %}
+			<div class="post" id="post-1010">
+			<h2><a class="title" href="/{{ entry.link|escape }}" rel="bookmark">{{ entry.title|escape }}</a></h2>
+			<div class="info">
+				<span class="date">{{ entry.date|datetz:"F jS, Y " }}</span>
+
+				<span class="comments"><a href="/{{entry.link|escape}}">{{entry.readtimes}} Views</a></span>
+				<span class="comments"><a href="/{{entry.link|escape}}#comments">{{entry.commentcount}} Comments </a></span>
+				<span>{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} </span>
+				<div class="fixed"></div>
+			</div>
+			<div class="content">
+				{{entry|excerpt_more:"(<strong>..More</strong>)"}}
+				<div class="fixed"></div>
+			</div>
+			<div class="under">
+			<span class="categories">Categories: </span><span>
+            {%for cate in entry.categories%} <a href="/category/{{cate.slug}}">{{cate.name}}</a> {%endfor%}
+            </span>	
+            {% if entry.tags%}
+            <span class="tags">Tags: </span><span>
+            {%for tag in entry.tags%}
+            <a href="/tag/{{tag|urlencode}}">{{tag}}</a>&nbsp;{%endfor%}</span>
+            {%endif%}
+			|{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} 
+            </div>
+
+		</div>
+
+			{% endfor %}
+        
+<div id="pagenavi">
+			<div class="wp-pagenavi">
+<h4>
+<span class="pages">Page {{pageindex}}&nbsp;</span>
+{% if show_prev %} <a href="/page/{{ pageindex|add:"-1" }}" > &laquo;Previous Page</a>&nbsp;{% endif %} 
+{% if show_next %} <a href="/page/{{ pageindex|add:"1"}}" > &raquo;Next Page</a>&nbsp;{% endif %} 
+</h4>
+            </div>
+		<div class="fixed"></div>
+</div>
+
+	</div>
+	<!-- main END -->
+
+	{% include "sidebar.html" %}
+
+	<div class="fixed"></div>
+</div>
+<!-- content END -->
+
+{% endblock %}

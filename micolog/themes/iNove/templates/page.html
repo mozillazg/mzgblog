@@ -1,0 +1,58 @@
+﻿{% extends "base.html" %}
+{% block title %} {{entry.title|escape}} - {{blog.title|escape}} {% endblock %}
+
+{% block head_block %}
+{% if entry %}
+{%if entry.strtags%}<meta name="Keywords" content="{{entry.strtags|escape}}">{%endif%}
+{%if entry.excerpt%} <meta name="Description" content="{{entry.excerpt|escape}}">{%endif%}
+{% endif %}
+<script src="/static/js/jquery.form.utf8.js"></script>
+<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+{% endblock %}
+
+{% block content %}
+  
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+
+
+    <div class="post" id="post-276">
+		<h2>{{ entry.title|escape }}</h2>
+		<div class="info">
+			<span class="addcomment"><a href="#respond">Write Comments</a></span>
+			<span class="comments"><a href="#comments">View Comments</a></span>
+			<span class="editpage">|{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} </span>
+			<div class="fixed"></div>
+		</div>
+		<div class="content">
+			{{ entry.content }}
+			<div class="fixed"></div>
+		</div>
+	</div>
+<div id="comments">
+
+<div id="cmtswitcher">
+			<a id="commenttab" class="curtab" >Comments ({{entry.comments.count}})</a>
+			<a id="readtab" class="curtab" >Views ({{entry.readtimes}})</a>
+				<span class="addcomment"><a href="#respond">Write Comments</a></span>
+				<span>{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} </span>
+		<div class="fixed"></div>
+</div>
+
+	{% include "comments.html" %}
+
+</div>
+
+	</div>
+	<!-- main END -->
+
+	
+{% include "sidebar.html" %}
+    
+	<div class="fixed"></div>
+</div>
+
+{% endblock %}

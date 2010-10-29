@@ -1,0 +1,116 @@
+<!-- sidebar START -->
+<div id="sidebar">
+
+<!-- sidebar north START -->
+<div id="northsidebar" class="sidebar">
+	<!-- feeds -->
+	<div class="widget widget_feeds">
+		<div class="content">
+			<div id="subscribe">
+				<a rel="external nofollow" id="feedrss" title="RSS Subscribe Blog" href="{{ blog.feedurl }}">RSS Subscribe Blog</a>
+			<div class="fixed"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- showcase -->
+	<div id="blog-notice" class="widget widget_blog_notice">		
+    <h3>Notice Board</h3>
+    <ul>
+		{{blog.blognotice|escape}}
+	</ul>
+	</div>
+	
+	<div id="recent-posts-2" class="widget widget_recent_entries">		
+    <h3>Latest Posts</h3>
+    <ul>
+        {% for entry in blog.recentposts %}
+		<li><a href="/{{entry.link|escape}}" title="{{entry.title|escape}}">{{entry.title|escape}}({{entry.readtimes}})</a></li>
+        {%endfor%}
+	</ul>
+	</div>
+
+	<div id="hot-posts" class="widget widget_hot_entries">		
+    <h3>Hot Posts</h3>
+    <ul>
+        {% for entry in blog.hotposts %}
+		<li><a href="/{{entry.link|escape}}" title="{{entry.title|escape}}">{{entry.title|escape}}({{entry.readtimes}})</a></li>
+        {%endfor%}
+	</ul>
+	</div>
+
+	<div id="recentcomments" class="widget widget_recentcomments">
+    <h3>Recent Comments</h3>
+    <ul>
+    {% for comment in recent_comments %}
+        <li class="rc_item"><div class="rc_info"><span class="author_name">
+        {%if comment.weburl %}<a target="_blank" href='{{comment.weburl}}' class='url'  rel='external nofollow'>{{comment.author}}</a>{% else %}{{comment.author}}{%endif%}</span> Published on <span class="post_title"><a href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">{{comment.entry.title|escape}}</a></span></div><div class="rc_excerpt">{{comment.shortcontent}}...</div></li>
+    {%endfor%}
+    </ul>
+    </div>
+
+</div>
+<!-- sidebar north END -->
+
+<div id="centersidebar">
+
+	<!-- sidebar east START -->
+	<div id="eastsidebar" class="sidebar">
+    	<div id="categories-368151121" class="widget widget_categories">
+        <h3>Categories</h3>
+        <ul>
+         	{%for cate in categories%}
+            <li class="cat-item cat-item-846"><a href="/category/{{cate.slug}}">{{cate.name}}</a>({{cate.count}})</li>
+            {%endfor%}
+    	</ul>
+        </div>	
+    </div>
+
+	<!-- sidebar east END -->
+
+	<!-- sidebar west START -->
+	<div id="westsidebar" class="sidebar">
+    	<div id="archives-2" class="widget widget_archives">
+		
+		<h3>Archives</h3>
+		<select onchange="document.location.href=this.options[this.selectedIndex].value;" name="archive-dropdown">
+			<option value="">Select Month</option>
+			{%for archive in archives%}
+			<option value="/{{archive.year}}/{{archive.month}}">{{archive.monthyear}} ({{archive.entrycount}})</option>
+			{%endfor%}
+		</select>
+		<!--<ul>
+		{%for archive in archives%}
+		<li><a href="/{{archive.year}}/{{archive.month}}">{{archive.monthyear}}({{archive.entrycount}})</a></li>
+		{%endfor%}
+		</ul>-->
+        </div>	
+    </div>
+	<!-- sidebar west END -->
+	<div class="fixed"></div>
+</div>
+
+<!-- sidebar south START -->
+<div id="southsidebar" class="sidebar">
+ 
+    <div id="linkcat-2" class="widget widget_links">
+    <h3>Blog Rolls</h3>
+    	<ul class='xoxo blogroll'>
+            {%for link in blogroll%}
+            <li><a href="{{link.href}}" target="_blank">{{link.linktext}}</a></li>
+            {%endfor%}
+    	</ul>
+    </div>
+	
+  	<div class="widget">
+		<h3>Tag Cloud</h3>
+		{% for t in alltags %}
+		<a title="{{ t.tagcount }} pages" href="/tag/{{t.tag|urlencode}}"><span style='font-size:{{ t.tagcount|add:9 }}px;'>{{t.tag}}</span></a>
+		{%endfor%}
+	</div>
+	
+</div>
+
+<!-- sidebar south END -->
+</div>
+<!-- sidebar END -->

@@ -1,0 +1,167 @@
+
+<!-- You can start editing here. -->
+{% if entry.allow_comment %}
+{% if entry.comments.count%}
+	<h3 id="comments">{{entry.comments.count}} Responses to &#8220;{{entry.title}}&#8221;</h3>
+
+<div id="commentlist">
+	<!-- comments START -->
+	<ol id="thecomments">
+		{% for comment in entry.comments %}
+		<li class="comment regularcomment" id="comment-{{comment.key.id}}">
+		<div class="author">
+			<div class="pic">
+				<img alt='' src='{{comment.gravatar_url}}' class='avatar avatar-32 photo' height='32' width='32' />			
+			</div>
+			<div class="name">
+				{%if comment.weburl %}
+				<a id="comment-{{comment.key.id}}" class="url" target="_blank" href="{{comment.weburl}}">{{comment.author}}</a>
+				{% else %}{{comment.author}}{%endif%}
+			</div>
+		</div>
+
+		<div class="info">
+			<div class="date">{{comment.date|datetz:"Y-m-d"}} at {{comment.date|datetz:"H:i"}}
+				<a onclick="return backcomment('{{comment.author}}');" href="#commentarea"><font color="#800000">Reply</font></a> 
+				<a onclick="return backcomment('Quote{{comment.author}}<blockquote> {{comment.content}}</blockquote>');" href="#commentarea"><font color="#800000">Quote</font></a> 
+			</div>
+			<div class="fixed"></div>
+			<div class="content">
+				<div id="comment-{{comment.key.id}}">{{comment.content}}</div>
+			</div>
+		</div>
+		<div class="fixed"></div>
+		</li>
+		{% endfor %}
+	</ol>
+	<!-- comments END -->
+</div>
+
+{%endif%}
+
+<a name="commentarea"></a> 
+<form action="/post_comment" method="post" id="commentform">
+	<div id="respond">
+		<div id="author_info">
+			<div class="row">
+				<input type="text" name="author" id="author" class="textfield" value="{{user_name}}" size="24" tabindex="1" />
+				<label for="author" class="small">Nickname (Required)</label>
+			</div>
+			<div class="row">
+				<input type="text" name="email" id="email" class="textfield" value="{{user_email}}" size="24" tabindex="2" />
+				<label for="email" class="small">Email (Required. This will ONLY be available to me.)</label>
+
+			</div>
+			<div class="row">
+				<input type="text" name="url" id="url" class="textfield" value="{{user_url}}" size="24" tabindex="3" />
+				<label for="url" class="small">Website (Optional)</label>
+			</div>
+
+{%ifequal blog.comment_check_type 1%}
+<div id="checkarea">
+<iframe src="/checkcode/"  style="width:90px;height:33px;border:0 none"SCROLLING=no></iframe>
+<input type="text" name="checkret" id="checkret" value="" size="7" tabindex="4" />
+</div>
+{%endifequal%}
+{%ifequal blog.comment_check_type 2%}
+<div id="checkarea" style="padding-bottom:15px">
+
+<div style="float:left;margin-right:8px;"><label for="checkret"><small>Checkcode:</small></label>
+<input type="text" name="checkret" id="checkret" value="" size="5" tabindex="4" />
+</div>
+<img id='checkimg' src='/checkimg/' style="border:0px;padding:0px;" title='Click to change image' onclick="reloadCheckImage();"/>
+</div>
+{%endifequal%}
+</div>
+
+		<div class="row">
+			<label for="comment" class="comment">Write your comments in the text area below.</label>
+			<textarea name="comment" id="comment" style="width:100%"  rows="10" tabindex="5"></textarea>
+		</div>
+
+<p><input name="submit" type="submit"  id="submit" tabindex="5" value="Submit" />
+</p>
+<input type="hidden" name="key" value="{{entry.key}}" />
+</div>
+</form>
+<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+<script>
+    commentuser=$.cookie('comment_user');
+       if (commentuser)
+       {
+         //[user,email,url]=commentuser.split('#@#');
+         var tuple=commentuser.split('#@#');
+        var user,email,url;
+        user=tuple[0];
+        email=tuple[1];
+        url=tuple[2];
+         $('#author').val(user);
+         $('#email').val(email);
+         $('#url').val(url);
+       }
+
+	   //Name
+	function backcomment(msg){
+		backdb=document.getElementById('comment');
+		backdb.value="@"+msg;
+		return true;
+	}
+	//Quote
+	function quote(name,id){
+		var quoteMsg=document.getElementById(id).innerHTML;
+		document.getElementById("comment").value='Quote'+name+'<blockquote>'+quoteMsg+'</blockquote>';
+		return true;
+	}
+	function add_comment(msg)
+	{
+		comment=$(msg)
+		if (!loadjs)
+		{
+			$("#thecomments").append(comment).show();
+			$.getScript("/static/js/jquery.color.js", function(){
+				comment.animate( { backgroundColor: '#fbc7c7' }, "slow")
+				.animate( { backgroundColor: 'white' }, "slow")
+				loadjs=true;
+			});
+		}else
+		{
+			$("#thecomments").append(comment);
+			comment.animate( { backgroundColor: '#fbc7c7' }, "slow")
+			.animate( { backgroundColor: 'white' }, "slow")
+
+		}
+	}
+	   
+  $('#commentform').submit(function(){
+         var form = this;
+           if (form.author)
+  		   {
+
+      			 if (!form.author.value)
+          		 {
+          		  alert('Please input your name.');
+          		  form.author.focus();
+          		  return false;
+          		 }
+          		 if (!form.email.value)
+          		 {
+          		 	alert('Please input the email address.');
+          		 	form.email.focus();
+          		 	return false;
+          		 }
+	       }
+
+      		 if (!form.comment.value)
+      		 {
+      		 	alert('Please leave some reply message.');
+      		 	form.comment.focus();
+      		 	return false;
+      		 }
+
+      		 return true;
+  });
+</script>
+
+{% else %}
+<p class="nocomments">No Comments</p>
+{% endif %}

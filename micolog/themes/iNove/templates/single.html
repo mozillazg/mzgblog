@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %} {{entry.title|escape}} - {{blog.title|escape}} {% endblock %}
+
+{% block head_block %}
+
+{% if entry %}
+{%if entry.strtags%}<meta name="Keywords" content="{{entry.strtags|escape}}">{%endif%}
+{%if entry.excerpt%} <meta name="Description" content="{{entry.excerpt|escape}}">{%endif%}
+{% endif %}
+
+<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/js/jquery.form.utf8.js"></script>
+
+
+{% endblock %}
+
+
+{% block content %}
+  
+<!-- content START -->
+<div id="content">
+
+	<!-- main START -->
+	<div id="main">
+
+	<div class="post" id="post-968">
+		<h2>{{ entry.title|escape }}</h2>
+		<div class="info">
+
+			<span class="date">{{ entry.date|datetz:"F jS, Y " }}</span>
+													<span class="addcomment"><a href="#respond">Write Comments</a></span>
+				<span class="comments"><a href="#comments">View Comments</a></span>
+				<span>{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} </span>
+						<div class="fixed"></div>
+		</div>
+		<div class="content">
+			{{ entry.content }}
+			<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span class="categories">Categories: </span><span>
+            {%for cate in entry.categories%} <a href="/category/{{cate.slug}}">{{cate.name}}</a> {%endfor%}
+            </span>	
+            {% if entry.tags%}
+            <span class="tags">Tags: </span><span>
+            {%for tag in entry.tags%}
+            <a href="/tag/{{tag|urlencode}}">{{tag}}</a>&nbsp;{%endfor%}</span>
+            {%endif%}
+			|{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} 
+            </div>
+
+	</div>
+
+	<!-- related posts START -->
+	<div id="related_posts"><h3>Related</h3>
+    <ul class="related_post">
+    {%for post in relateposts%}
+                  <li><a href="/{{post.link|escape}}">{{post.title|escape}}</a></li>
+    {%endfor%}
+    </ul></div><div class="fixed"></div>	<!-- related posts END -->
+
+<div id="comments">
+
+<div id="cmtswitcher">
+			<a id="commenttab" class="curtab" >Comments ({{entry.comments.count}})</a>
+			<a id="readtab" class="curtab" >Views ({{entry.readtimes}})</a>
+				<span class="addcomment"><a href="#respond">Write Comments</a></span>
+
+		<div class="fixed"></div>
+</div>
+
+	{% include "comments.html" %}
+
+</div>
+
+	<div id="postnavi">
+    {%for prev in entry.prev%}
+		<span class="prev"><a href="/{{prev.link}}">{{prev.title}}</a></span>
+    {%endfor%}
+    {%for next in entry.next%}
+		<span class="next"><a href="/{{next.link}}">{{next.title}}</a></span>
+    {%endfor%}
+		<div class="fixed"></div>
+	</div>
+
+	</div>
+	<!-- main END -->
+
+	
+{% include "sidebar.html" %}
+    
+	<div class="fixed"></div>
+</div>
+
+{% endblock %}
