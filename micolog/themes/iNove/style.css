@@ -20,7 +20,7 @@ abbr[title], acronym[title] {
 body {
 	background:#BEC3C6 url(images/bg.jpg) repeat-x;
 	color:#555;
-	font-family:Verdana,"BitStream vera Sans",Helvetica,Sans-serif;
+	font-family:Verdana,"BitStream vera Sans",Helvetica,"WenQuanYi Micro Hei",Sans-serif;
 	font-size:13px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -37,16 +37,14 @@ h6 {font-size:100%;}
 img {
 	border:0;
 }
-
 img { width: expression(this.width > 580 & this.height < this.width ? 580 : true); height: expression(this.height > 580? 580: true); }
-
 img.sided {
 	background:#FFF;
 	border:1px solid #CCC;
 	padding:3px;
 }
 small {
-	font-size:10px;
+	font-size:11px;
 }
 a:hover img.sided {
 	border-color:#A6A6A6;
@@ -58,6 +56,10 @@ a {
 a:hover {
 	text-decoration:underline;
 }
+select {
+	font-family:Arial;
+	font-size:12px;
+	}
 .wp-caption {
 	background:#F7F7F7;
 	border:1px solid #CCC;
@@ -80,11 +82,12 @@ a:hover {
 	margin:0;
 }
 blockquote {
-	background:#F4F5F7 url(images/blockquote.gif) 3px 3px no-repeat;
-	border:1px dashed #CCC;
-	padding:8px 12px 8px 36px;
-	margin:5px 0;
+	background: url(images/blockquote.gif) no-repeat scroll left top transparent;
+	padding:0 0 0 60px;
+	min-height: 50px
 }
+blockquote:hover {
+	background-color: #FFFFC8;
 pre {
 	background:#F4F5F7;
 	border:1px dashed #CCC;
@@ -96,6 +99,7 @@ pre {
 	white-space: -pre-wrap;      /* Opera 4-6 */
 	white-space: -o-pre-wrap;    /* Opera 7 */
 	word-wrap: break-word;       /* Internet Exp lorer 5.5+ */
+}
 }
 .more-link {
 	font-size:11px;
@@ -408,20 +412,21 @@ textarea {
 .post .addlink, 
 .post .editlinks {
 	background:url(images/icons.gif) no-repeat;
-	padding-left:22px;
-	height:16px;
-	line-height:16px;
+	padding-left:20px;
+	height:18px;
+	line-height:18px;
 	display:block;
-	font-size:11px;
+	font-size:12px;
 }
 .post .tags, 
 .post .categories {
 	background:url(images/icons.gif) no-repeat;
 	width:16px;
-	height:16px;
-	line-height:16px;
+	height:18px;
+	line-height:18px;
 	display:block;
 	text-indent:-999em;
+	font-size:12px;
 }
 .post .under span.tags, 
 .post .under span.categories {
@@ -452,16 +457,17 @@ textarea {
 }
 .post .editpost {
 	background-position:0 -64px;
-	margin-left:15px;
+	margin-left:12px;
 	float:right;
 }
 .post .comments {
 	background-position:0 -96px;
+	margin-left:12px;
 	float:right;
 }
 .post .addcomment {
 	background-position:0 -112px;
-	margin-left:15px;
+	margin-left:12px;
 	float:right;
 }
 .post .addlink {
@@ -529,36 +535,58 @@ textarea {
 .post .content .box {
 	background-image:url(images/postbox.gif);
 }
+.post .content .refship{
+	padding:8px;
+	font-size:12px;
+	background:#FFFEEF;
+	border:2px solid #E3E4E6;
+	margin-bottom:8px;
+}
 #postpath {
 	background:url(images/icons.gif) 0 -320px no-repeat;
 	line-height:16px;
 	margin:5px 0;
 	padding-left:22px;
 }
-#pagenavi, 
-#postnavi {
-	border-top:1px solid #CCC;
+#pagenavi, #postnavi {
+	border-top:1px solid #CCCCCC;
 	margin:10px -5px 0;
 	padding:10px 5px 0;
+	text-align:center;
 }
 #pagenavi {
-	font-size:11px;
+	font-size:100%;
 }
-#pagenavi .newer a, 
-#postnavi .prev a {
-	background:url(images/icons.gif) 0 -224px no-repeat;
-	padding-left:22px;
+.wp-pagenavi a {
+	border:1px solid #DDDDDD;
+	padding:5px 7px;
+	text-decoration:none;
+}
+.wp-pagenavi a:hover {
+	background:none repeat scroll 0 0 #E5E5E5;
+	border:1px solid #DDDDDD;
+	text-decoration:none;
+}
+.wp-pagenavi {
+	background:url("images/icons.gif") no-repeat scroll 0 -272px transparent;
+	height:16px;
+	line-height:16px;
+	margin:10px 0;
+	padding:1px 7px 1px 22px !important;
+}
+#pagenavi .newer a, #postnavi .prev a {
+	background:url("images/icons.gif") no-repeat scroll 0 -224px transparent;
 	float:left;
 	height:16px;
 	line-height:16px;
+	padding-left:22px;
 }
-#pagenavi .older a, 
-#postnavi .next a {
-	background:url(images/icons.gif) 100% -240px no-repeat;
-	padding-right:22px;
+#pagenavi .older a, #postnavi .next a {
+	background:url("images/icons.gif") no-repeat scroll 100% -240px transparent;
 	float:right;
 	height:16px;
 	line-height:16px;
+	padding-right:22px;
 }
 /* main END */
 
@@ -568,13 +596,13 @@ textarea {
 	width:300px;
 	float:right;
 	font-size:95%;
-	line-height:145%;
+	line-height:140%;
 	overflow:hidden;
 	padding-top:8px;
 }
 #sidebar li {
 	background:url(images/icons.gif) 0 -560px no-repeat;
-	padding-left:22px;
+	padding-left:20px;
 	list-style:none;
 	margin-top:5px;
 	/*font-size:95%;*/
@@ -587,7 +615,7 @@ textarea {
 #northsidebar .widget, 
 #southsidebar .widget {
 	background:url(images/widgetsep.png) bottom no-repeat;
-	padding:10px 15px 16px;
+	padding:10px 15px 15px;
 }
 #centersidebar {
 	padding-bottom:6px;
@@ -605,14 +633,14 @@ textarea {
 	margin-bottom:10px;
 }
 #westsidebar {
-	width:121px;
+	width:130px;
 	float:left;
 	padding-right:5px;
 	font-size:95%;
 	overflow:hidden;
 }
 #eastsidebar {
-	width:129px;
+	width:130px;
 	float:right;
 	font-size:95%;
 	overflow:hidden;
@@ -628,21 +656,86 @@ textarea {
 #sidebar .widget_feeds {
 	padding:5px 15px 15px;
 }
-#sidebar #feedrss, 
-#sidebar #feedemail {
-	height:25px;
-	line-height:25px;
+#sidebar #feedrss,
+#sidebar #blogger,
+#sidebar #calbum,
+#sidebar #delicious,
+#sidebar #facebook,
+#sidebar #flickr,
+#sidebar #googleprofile,
+#sidebar #googlereader,
+#sidebar #livemsn,
+#sidebar #myspace,
+#sidebar #picasa,
+#sidebar #twitter,
+#sidebar #txqq,
+#sidebar #wikipedia,
+#sidebar #wordpress,
+#sidebar #yahoo,
+#sidebar #ycool,
+#sidebar #youtube {
+	height:50px;
+	line-height:50px;
 	display:block;
-	padding:5px 5px 5px 36px;
+	padding:0px 0px 0px 50px;
 	float:left;
 	text-decoration:none;
+	margin-left:10px;
+	margin-bottom:10px;
 }
 #sidebar #feedrss {
-	background:url(images/feeds.gif) 5px 5px no-repeat;
+	background:url(logos/rssfeed.png) no-repeat;
 }
-#sidebar #feedemail {
-	background:url(images/feeds.gif) 5px -45px no-repeat;
-	margin-left:15px;
+#sidebar #blogger {
+	background:url(logos/blogger.png) no-repeat;
+}
+#sidebar #calbum {
+	background:url(logos/calbum.png) no-repeat;
+}
+#sidebar #delicious {
+	background:url(logos/delicious.png) no-repeat;
+}
+#sidebar #facebook {
+	background:url(logos/facebook.png) no-repeat;
+}
+#sidebar #flickr {
+	background:url(logos/flickr.png) no-repeat;
+}
+#sidebar #googleprofile {
+	background:url(logos/googleprofile.png) no-repeat;
+}
+#sidebar #googlereader {
+	background:url(logos/googlereader.png) no-repeat;
+}
+#sidebar #livemsn {
+	background:url(logos/livemsn.png) no-repeat;
+}
+#sidebar #myspace {
+	background:url(logos/myspace.png) no-repeat;
+}
+#sidebar #picasa {
+	background:url(logos/picasa.png) no-repeat;
+}
+#sidebar #twitter {
+	background:url(logos/twitter.png) no-repeat;
+}
+#sidebar #txqq {
+	background:url(logos/txqq.png) no-repeat;
+}
+#sidebar #wikipedia {
+	background:url(logos/wikipedia.png) no-repeat;
+}
+#sidebar #wordpress {
+	background:url(logos/wordpress.png) no-repeat;
+}
+#sidebar #yahoo {
+	background:url(logos/yahoo.png) no-repeat;
+}
+#sidebar #ycool {
+	background:url(logos/ycool.png) no-repeat;
+}
+#sidebar #youtube {
+	background:url(logos/youtube.png) no-repeat;
 }
 #subscribe ul {
 	display:none;
@@ -704,6 +797,26 @@ textarea {
 #tag_cloud a {
 	line-height:130%;
 }
+
+#sidebar .rc_item {
+background:none repeat scroll 0 0 transparent;
+line-height:145%;
+padding:2px 0;
+}
+.rc_item .rc_avatar {
+line-height:1px;
+display:inline;
+float:left;
+padding-right:7px !important;
+}
+.rc_item .rc_avatar img {
+background:none repeat scroll 0 0 #FFFFFF;
+border:1px solid #999999;
+padding:1px;
+}
+.rc_item .rc_info .author_name {
+font-weight:bold;
+}
 /* sidebar END */
 
 /* footer START */
@@ -712,7 +825,7 @@ textarea {
 	display:block;
 	height:88px;
 	border-top:1px solid #CCC;
-	font-size:11px;
+	font-size:12px;
 	line-height:145%;
 	width:100%;
 }
@@ -723,9 +836,6 @@ textarea {
 	margin-top:12px;
 	margin-left:20px;
 }
-#themeinfo {
-	margin-left:20px;
-}
 a#powered {
 	background:url(images/wp-logo.png) no-repeat;
 	display:block;
@@ -734,6 +844,9 @@ a#powered {
 	float:left;
 	margin:0 10px 0 5px;
 	text-indent:-999em;
+}
+#themeinfo {
+	margin-left:20px;
 }
 a#gotop {
 	background:url(images/icons.gif) 0 -304px no-repeat;
@@ -750,10 +863,10 @@ a#gotop {
 
 /* comment START */
 #commentlist {
-	background:#FCFCFC;
+	background:#EDEFF0;
 	border-top:1px solid #CCC;
 	border-bottom:1px solid #CCC;
-	margin:0 -15px;
+	margin:0 5px;
 	padding:0 15px;
 }
 #commentlist ol, 
@@ -762,13 +875,12 @@ a#gotop {
 }
 #cmtswitcher {
 	background:#FFF;
-	font-size:10px;
+	font-size:12px;
 	padding-top:5px;
 }
 #cmtswitcher a.tab, 
 #cmtswitcher a.curtab {
 	padding:5px 10px;
-	margin-bottom:-1px;
 	display:block;
 	float:right;
 	color:#555;
@@ -776,20 +888,18 @@ a#gotop {
 }
 #cmtswitcher a.tab {
 	border:1px solid #FFF;
-	border-bottom-color:#CCC;
 }
 #cmtswitcher a.curtab {
 	background:#FCFCFC;
 	border:1px solid #CCC;
-	border-bottom-color:#FCFCFC;
 }
 #cmtswitcher .addcomment, 
-#cmtswitcher .addtrackback {
+#cmtswitcher .editentry {
 	padding-left:22px;
-	height:16px;
-	line-height:16px;
+	height:18px;
+	line-height:18px;
 	display:block;
-	font-size:11px;
+	font-size:12px;
 	float:left;
 	margin-right:15px;
 	margin-top:4px !important;
@@ -798,8 +908,8 @@ a#gotop {
 #cmtswitcher .addcomment {
 	background:url(images/icons.gif) 0 -112px no-repeat;
 }
-#cmtswitcher .addtrackback {
-	background:url(images/icons.gif) 0 -144px no-repeat;
+#cmtswitcher .editentry {
+	background:url(images/icons.gif) 0 -192px no-repeat;
 }
 #thecomments, 
 #thetrackbacks {
@@ -811,7 +921,7 @@ a#gotop {
 }
 .comment .author {
 	float:left;
-	width:81px;
+	width:80px;
 	text-align:center;
 }
 .comment .pic {
@@ -830,20 +940,20 @@ a#gotop {
 	border:1px solid #999;
 }
 .comment .info {
-	background:#EDEFF0 url(images/comment.gif) 0 0 no-repeat;
+	background:#FFFFFF url(images/comment.gif) 0 0 no-repeat;
 	float:left;
 	padding:10px 15px 0;
-	width:494px;
+	width:450px;
 }
 .comment .date, 
 .trackback .date {
 	float:left;
-	font-size:10px;
+	font-size:12px;
 }
 .comment .act, 
 .trackback .act {
 	float:right;
-	font-size:10px;
+	font-size:11px;
 }
 .comment .content {
 	background:url(images/comment.gif) 100% 100% no-repeat;
@@ -855,8 +965,8 @@ a#gotop {
 	margin-top:10px;
 }
 .comment .content blockquote p {
-	margin-top:0;
-	margin-bottom:10px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 .admincomment .author {
 	float:right;
@@ -883,12 +993,12 @@ a#gotop {
 	margin-top:15px;
 }
 .trackback {
-	background:#EDEFF0 url(images/box.gif) 0 0 no-repeat;
+	background:#FFFFFF url(images/box.gif) 0 0 no-repeat;
 	padding:10px 15px 0;
 	width:575px;
 }
 .trackback .title {
-	background:#EDEFF0 url(images/box.gif) 100% 100% no-repeat;
+	background:#FFFFFF url(images/box.gif) 100% 100% no-repeat;
 	padding:10px 15px !important;
 	padding:0 15px 10px;
 	width:575px;
@@ -896,10 +1006,10 @@ a#gotop {
 }
 #respond {
 	padding:10px 0 0;
-	font-size:11px;
+	font-size:12px;
 }
 #respond .row {
-	margin-bottom:5px;
+	margin-bottom:6px;
 }
 #respond .textfield {
 	width:200px;
@@ -910,17 +1020,17 @@ a#gotop {
 	margin-right:10px;
 }
 #comment {
-	width:601px;
+	width:600px;
 }
 #commentnavi {
-	background:#EDEFF0 url(images/box.gif) 0 0 no-repeat;
+	background:#FFFFFF url(images/box.gif) 0 0 no-repeat;
 	padding:10px 15px;
 	font-size:11px;
 }
 #commentnavi a.page-numbers {
 	padding:5px 7px;
 	text-decoration:none;
-	border:1px solid #EDEFF0;
+	border:1px solid #FFFFFF;
 	margin:0 -2px;
 }
 #commentnavi a.page-numbers:hover {	
@@ -1042,7 +1152,6 @@ a#gotop {
 /* linkcat END */
 
 /* related posts START */
-/* when related posts with title */
 #related_posts {
 	padding-bottom:10px;
 }

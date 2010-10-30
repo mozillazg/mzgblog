@@ -39,6 +39,9 @@
 
 {%endif%}
 
+<div id="respond">
+	<h4 style="">Write your comments</h4>
+</div>
 <a name="commentarea"></a> 
 <form action="/post_comment" method="post" id="commentform">
 	<div id="respond">
@@ -49,7 +52,7 @@
 			</div>
 			<div class="row">
 				<input type="text" name="email" id="email" class="textfield" value="{{user_email}}" size="24" tabindex="2" />
-				<label for="email" class="small">Email (Required. This will ONLY be available to me.)</label>
+				<label for="email" class="small">Email (Required. Will not be published.)</label>
 
 			</div>
 			<div class="row">
@@ -78,7 +81,7 @@
 			<label for="comment" class="comment">Write your comments in the text area below.</label>
 			<textarea name="comment" id="comment" style="width:100%"  rows="10" tabindex="5"></textarea>
 		</div>
-
+<p><em><span style="font-size: medium; font-family: times new roman,times;">Tips: Your can now customize your own avatar at <a target="_blank" href="http://gravatar.com">Gravatar</a></span></em></p>
 <p><input name="submit" type="submit"  id="submit" tabindex="5" value="Submit" />
 </p>
 <input type="hidden" name="key" value="{{entry.key}}" />

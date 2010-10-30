@@ -38,7 +38,7 @@
             {%for tag in entry.tags%}
             <a href="/tag/{{tag|urlencode}}">{{tag}}</a>&nbsp;{%endfor%}</span>
             {%endif%}
-			|{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} 
+			{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} 
             </div>
 
 		</div>
