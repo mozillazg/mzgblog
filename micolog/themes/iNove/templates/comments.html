@@ -11,7 +11,7 @@
 		<li class="comment regularcomment" id="comment-{{comment.key.id}}">
 		<div class="author">
 			<div class="pic">
-				<img alt='' src='{{comment.gravatar_url}}' class='avatar avatar-32 photo' height='32' width='32' />			
+				<img alt='' src='{{comment.gravatar_url}}' class='avatar'/>			
 			</div>
 			<div class="name">
 				{%if comment.weburl %}
@@ -63,7 +63,7 @@
 {%ifequal blog.comment_check_type 1%}
 <div id="checkarea">
 <iframe src="/checkcode/"  style="width:90px;height:33px;border:0 none"SCROLLING=no></iframe>
-<input type="text" name="checkret" id="checkret" value="" size="7" tabindex="4" />
+<input type="text" name="checkret" id="checkret" value="" size="7" tabindex="4" style="height:33px" />
 </div>
 {%endifequal%}
 {%ifequal blog.comment_check_type 2%}

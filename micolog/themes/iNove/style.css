@@ -20,7 +20,7 @@ abbr[title], acronym[title] {
 body {
 	background:#BEC3C6 url(images/bg.jpg) repeat-x;
 	color:#555;
-	font-family:Verdana,"BitStream vera Sans",Helvetica,"WenQuanYi Micro Hei",Sans-serif;
+	font-family:Verdana,Helvetica,Sans-serif;
 	font-size:13px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -50,7 +50,7 @@ a:hover img.sided {
 	border-color:#A6A6A6;
 }
 a {
-	color:#2970A6;
+	color:#3B96EF;
 	text-decoration:none;
 }
 a:hover {
@@ -88,18 +88,6 @@ blockquote {
 }
 blockquote:hover {
 	background-color: #FFFFC8;
-pre {
-	background:#F4F5F7;
-	border:1px dashed #CCC;
-	padding:8px 12px 8px 36px;
-	margin:5px 0;
-	
-	white-space: pre-wrap;       /* css-3 */
-	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-	white-space: -pre-wrap;      /* Opera 4-6 */
-	white-space: -o-pre-wrap;    /* Opera 7 */
-	word-wrap: break-word;       /* Internet Exp lorer 5.5+ */
-}
 }
 .more-link {
 	font-size:11px;
@@ -150,7 +138,7 @@ textarea {
 }
 .boxcaption h3 {
 	font-size:12px;
-	font-family:Verdana,"BitStream vera Sans";
+	font-family:Verdana;
 	letter-spacing:0em;
 }
 .box {
@@ -174,7 +162,6 @@ textarea {
 
 /* layout START */
 #wrap {
-	background:url(images/light.gif) center top no-repeat;
 	padding:20px 0;
 }
 #container {
@@ -200,18 +187,6 @@ textarea {
 	font-family:"Trajan Pro";
 	letter-spacing:0;
 }
-/* image blog title */
-/*
-#title a {
-	background:url(images/title.gif) no-repeat;
-	text-decoration:none;
-	color:#FFF;
-	width:250px;
-	height:32px;
-	text-indent:-999em;
-	display:block;
-}
-*/
 #tagline {
 	color:#FFF;
 	border-top:1px solid #FFF;
@@ -386,14 +361,14 @@ textarea {
 	border-bottom:1px solid #CCC;
 	padding:0 5px 3px;
 	font-size:16px;
-	font-family:Verdana,"BitStream vera Sans";
+	font-family:Verdana;
 }
 .post h2 a.title {
 	text-decoration:none;
-	color:#4C4C4C;
+	color:#2970A6;
 }
 .post h2 a.title:hover {
-	color:#2970A6;
+	color:#0000FF;
 }
 .post h2 .act a {
 	font-weight:normal;
@@ -737,6 +712,22 @@ textarea {
 #sidebar #youtube {
 	background:url(logos/youtube.png) no-repeat;
 }
+#sidebar #feedrss, 
+#sidebar #feedemail {
+	height:25px;
+	line-height:25px;
+	display:block;
+	padding:5px 5px 5px 36px;
+	float:left;
+	text-decoration:none;
+}
+#sidebar #feedrss {
+	background:url(images/feeds.gif) 5px 5px no-repeat;
+}
+#sidebar #feedemail {
+	background:url(images/feeds.gif) 5px -45px no-repeat;
+	margin-left:15px;
+}
 #subscribe ul {
 	display:none;
 	position:absolute;
@@ -753,51 +744,6 @@ textarea {
 	padding:0;
 	display:block;
 }
-#subscribe li a span {
-	background:url(images/readers.gif) no-repeat;
-	height:20px;
-	width:80px;
-	display:block;
-	text-indent:-999em;
-}
-#subscribe li#google_reader a span {
-	background-position:0 0;
-}
-#subscribe li#youdao_reader a span {
-	background-position:0 -20px;
-}
-#subscribe li#xianguo_reader a span {
-	background-position:0 -40px;
-}
-#subscribe li#zhuaxia_reader a span {
-	background-position:0 -60px;
-}
-#subscribe li#yahoo_reader a span {
-	background-position:0 -80px;
-}
-#subscribe li#newsgator_reader a span {
-	background-position:0 -100px;
-}
-#subscribe li#bloglines_reader a span {
-	background-position:0 -120px;
-}
-#subscribe li#inezha_reader a span {
-	background-position:0 -140px;
-}
-#subscribe li a {
-	display:block;
-	padding:5px;
-	text-decoration:none;
-	width:80px;
-	font-size:12px;
-}
-#subscribe li a:hover {
-	background:#EEDDCC;
-}
-#tag_cloud a {
-	line-height:130%;
-}
-
 #sidebar .rc_item {
 background:none repeat scroll 0 0 transparent;
 line-height:145%;
@@ -836,15 +782,6 @@ font-weight:bold;
 	margin-top:12px;
 	margin-left:20px;
 }
-a#powered {
-	background:url(images/wp-logo.png) no-repeat;
-	display:block;
-	width:92px;
-	height:57px;
-	float:left;
-	margin:0 10px 0 5px;
-	text-indent:-999em;
-}
 #themeinfo {
 	margin-left:20px;
 }
@@ -862,6 +799,10 @@ a#gotop {
 /* footer END */
 
 /* comment START */
+.avatar {
+	height:40px;
+	width:40px;
+}
 #commentlist {
 	background:#EDEFF0;
 	border-top:1px solid #CCC;
@@ -1055,6 +996,8 @@ a#gotop {
 #commentnavi #commentpager {
 	line-height:16px;
 }
+
+
 #submitbox a.feed {
 	background:url(images/icons.gif) 0 -256px no-repeat;
 	padding-left:22px;
@@ -1159,7 +1102,7 @@ a#gotop {
 	background:#E3E4E6 url(images/box.gif) 0 0 no-repeat;
 	font-size:12px;
 	padding:6px 12px;
-	font-family:Verdana,"BitStream vera Sans",Arial,Helvetica,Sans-serif;
+	font-family:Verdana,Arial,Helvetica,Sans-serif;
 	letter-spacing:0em;
 	border-bottom:1px solid #CCC;
 }
@@ -1181,22 +1124,6 @@ a#gotop {
 	font-size:11px;
 	display:block;
 }
-/* when related posts without title */
-/*
-#related_posts {
-	padding-top:3px;
-	padding-bottom:8px;
-}
-#related_posts ul li {
-	list-style:none;
-	padding:3px 5px;
-	border-bottom:1px solid #E3E4E6;
-	line-height:18px;
-}
-*/
-/* related posts END */
-
-/* one-column START */
 .one-column #content {
 	background:#FFF;
 }
@@ -1235,91 +1162,3 @@ a#gotop {
 	background-image:url(images/postbox_1col.gif);
 }
 /* one-column END */
-
-/* thread twitter START */
-.post .twitter-tweedles {
-	background:#E2F2FB;
-	border:1px dashed #3FCDEB;
-	padding:10px 0 0;
-}
-.twitter ul {
-	margin:0 12px 0 10px !important;
-	margin:0 10px;
-}
-.post .content .twitter ul li {
-	background:#FCFCFC;
-	padding:0;
-	float:left;
-	list-style:none;
-	list-style-position:outside;
-	border:solid #CCC;
-	border-width:1px !important;
-	border-width:1px 0;
-	width:100%;
-	padding-top:10px;
-	margin-bottom:10px;
-}
-.twitter img {
-	float:left;
-	padding:0 10px 0 0;
-	margin:0 0 10px 10px;
-}
-.twitter_source {
-	color:#999;
-	font-family:georgia;
-	font-style:italic;
-	font-size:10px;
-}
-.twitter_source a {
-	color:#999;
-}
-.twitter_text {
-	margin-bottom:5px;
-	display:block;
-	padding-left:70px;
-	padding-right:10px;
-}
-.twitter_reply {
-	background: url(images/icons.gif) 0 -112px no-repeat;
-	padding-left:22px;
-	padding-right:10px;
-	height:16px;
-	line-height:16px;
-	display:block;
-	font-size:11px;
-	float:right;
-}
-.twitter .twitter_pagebar {
-	padding:0 10px;
-	font-size:11px;
-}
-.twitter .twitter_pagebar a {
-	background:#D1EAF9;
-	padding:2px 5px;
-	border:1px solid #D1EAF9;
-}
-.twitter .twitter_pagebar a:hover {
-	border:1px dashed #3FCDEB;
-	text-decoration:none;
-}
-.twitter .twitter_pagebar strong {
-	background:#A6D0E7;
-	padding:2px 5px;
-	border:1px solid #A6D0E7;
-}
-.post .content .thread_twitter_power_by {
-	display:block;
-	background:#D1EAF9;
-	border-top:1px dashed #3FCDEB;
-	margin-bottom:0;
-	padding:5px 10px;
-}
-.twitter .navigation {
-	padding:10px 5px;
-}
-#thread_twitter .loading {
-	padding:0 10px;
-	font-size:11px;
-}
-/* thread twitter END */
-

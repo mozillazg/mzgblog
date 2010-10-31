@@ -21,7 +21,11 @@
 
 				<span class="comments"><a href="/{{entry.link|escape}}#comments" title="{{entry.title|escape}}">{{entry.commentcount}} Comments</a></span>
 				<div class="fixed"></div>
-			</div>
+			</div><!--
+			<div class="content">
+				{{entry|excerpt_more:"(<strong>..More</strong>)"}}
+				<div class="fixed"></div>
+			</div>-->
 		</div>
 		{% endfor %}
 
