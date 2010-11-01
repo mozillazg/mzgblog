@@ -93,17 +93,17 @@
     	<div id="archives-2" class="widget widget_archives">
 		
 		<h3>Archives</h3>
-		<select onchange="document.location.href=this.options[this.selectedIndex].value;" name="archive-dropdown">
+		<!--<select onchange="document.location.href=this.options[this.selectedIndex].value;" name="archive-dropdown">
 			<option value="">Select Month</option>
 			{%for archive in archives%}
 			<option value="/{{archive.year}}/{{archive.month}}">{{archive.monthyear}} ({{archive.entrycount}})</option>
 			{%endfor%}
-		</select>
-		<!--<ul>
+		</select>-->
+		<ul>
 		{%for archive in archives%}
 		<li><a href="/{{archive.year}}/{{archive.month}}">{{archive.monthyear}}({{archive.entrycount}})</a></li>
 		{%endfor%}
-		</ul>-->
+		</ul>
         </div>	
     </div>
 	<!-- sidebar west END -->

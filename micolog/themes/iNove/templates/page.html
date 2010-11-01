@@ -38,7 +38,7 @@
 			<a id="commenttab" class="curtab" >Comments ({{entry.comments.count}})</a>
 			<a id="readtab" class="curtab" >Views ({{entry.readtimes}})</a>
 				<span class="addcomment"><a href="#respond">Write Comments</a></span>
-				<span>{%if self.is_admin%}<a href="{{entry.edit_url}}">Edit</a> | {%endif%} </span>
+				<span>{%if self.is_admin%} | <a href="{{entry.edit_url}}">Edit</a>{%endif%} </span>
 		<div class="fixed"></div>
 </div>
 
