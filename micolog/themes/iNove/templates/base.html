@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head profile="http://gmpg.org/xfn/11">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>{% block title %} {{ blog.title|escape}}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{% block title %} {{ blog.title|escape}}{% endblock %}</title>
 
-	<!-- style START -->
-	<!-- default style -->
+    <!-- style START -->
+    <!-- default style -->
     <link rel="stylesheet" href="/themes/{{ blog.theme_name }}/style.css" type="text/css" />
-	<!-- style END -->
+    <!-- style END -->
 
-	<link href="/static/prettify/prettify.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript" src="/static/js/jquery-1.3.2.min.js"></script>
-	<script type="text/javascript" src="/static/prettify/prettify.js"></script>
+    <link href="/static/prettify/prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/static/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="/static/prettify/prettify.js"></script>
 
 {% block head_block %}{% endblock %}
 
@@ -28,53 +28,82 @@
 <!-- header START -->
 <div id="header">
 
-	<!-- banner START -->
-		<!-- banner END -->
+    <!-- banner START -->
+        <!-- banner END -->
 
-	<div id="caption">
-		<h1 id="title"><a href="/">{{ blog.title|escape}}</a></h1>
-		<div id="tagline">{{ blog.subtitle|escape}}</div>
+    <div id="caption">
+        <h1 id="title"><a href="/">{{ blog.title|escape}}</a></h1>
+        <div id="tagline">{{ blog.subtitle|escape}}</div>
 
-	</div>
+    </div>
 
-	<div class="fixed"></div>
+    <div class="fixed"></div>
 </div>
 <!-- header END -->
 
 <!-- navigation START -->
 <div id="navigation">
-	<!-- menus START -->
-	<ul id="menus">
-		<li class="current_page_item"><a class="home" title="Home" href="/">Home</a></li>
-		{{self.m_list_pages}}
-		<li class="page_item" ><a href="{{blog.feedurl}}">(RSS)</a></li>
-		{% block topmenu %}{% endblock %}
-		{%if self.is_admin or self.author%}
-		<li><a href="/admin">Admin</a> </li>
-			{%endif%}
-		<li>{%if self.is_login%}<a href="{{self.logouturl}}">Logout</a>
-			{%else%}<a href="/admin">Login</a>
-			{%endif%}
-		</li>
-	</ul>
-	<!-- menus END -->
+    <!-- menus START -->
+    <ul id="menus">
+        <li class="current_page_item"><a class="home" title="Home" href="/">Home</a></li>
+        {{self.m_list_pages}}
+        <li class="page_item" ><a href="{{blog.feedurl}}">(RSS)</a></li>
+        {% block topmenu %}{% endblock %}
+        {%if self.is_admin or self.author%}
+        <li><a href="/admin">Admin</a> </li>
+            {%endif%}
+        <li>{%if self.is_login%}<a href="{{self.logouturl}}">Logout</a>
+            {%else%}<a href="/admin">Login</a>
+            {%endif%}
+        </li>
+    </ul>
+    <!-- menus END -->
 
-	<!-- searchbox START -->
-	<div id="searchbox">
+    <!-- searchbox START -->
+    <div id="searchbox">
 
-					<form action="http://www.google.com/search" method="get" target="_blank">
-				<div class="content">
-					<input type="text" class="textfield" name="as_q" size="24" value="" />
-                    <input name="as_sitesearch" value="{{blog.domain}}" type="hidden">
-					<input type="submit" class="button" value="" />
+        <form action="http://www.google.com/search" method="get" target="_blank">
+            <div class="content">
+                <input type="text" class="textfield searchtip" name="as_q" size="24" value="" />
+                <input name="as_sitesearch" value="{{blog.domain}}" type="hidden">
+                <input type="submit" class="button" value="" />
                     
-				</div>
-			</form>
-			</div>
+            </div>
+        </form>
+    </div>
 
-	<!-- searchbox END -->
+    <script type="text/javascript">
+    //<![CDATA[
+    var searchbox = MGJS.$("searchbox");
+    var searchtxt = MGJS.getElementsByClassName("textfield", "input", searchbox)[0];
+    var searchbtn = MGJS.getElementsByClassName("button", "input", searchbox)[0];
+    var tiptext = "Type text to search here...";
+    if(searchtxt.value == "" || searchtxt.value == tiptext) {
+        searchtxt.className += " searchtip";
+        searchtxt.value = tiptext;
+    }
+    searchtxt.onfocus = function(e) {
+        if(searchtxt.value == tiptext) {
+            searchtxt.value = "";
+            searchtxt.className = searchtxt.className.replace(" searchtip", "");
+        }
+    }
+    searchtxt.onblur = function(e) {
+        if(searchtxt.value == "") {
+            searchtxt.className += " searchtip";
+            searchtxt.value = tiptext;
+        }
+    }
+    searchbtn.onclick = function(e) {
+        if(searchtxt.value == "" || searchtxt.value == tiptext) {
+            return false;
+        }
+    }
+    //]]>
+    </script>
+    <!-- searchbox END -->
 
-	<div class="fixed"></div>
+    <div class="fixed"></div>
 </div>
 <!-- navigation END -->
 
@@ -86,13 +115,13 @@
 
 <!-- footer START -->
 <div id="footer">
-	<a id="gotop" href="#">Go Top</a>
+    <a id="gotop" href="#">Go Top</a>
 
-	<div id="copyright">
-		All Rights Reserved &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a> | Powered by <a href="http://xuming.net" target="_blank">Micolog</a> & <a href="http://code.google.com/appengine/" target="_blank">Google App Engine</a>.
-	</div>
-	<div id="themeinfo">
-		Theme by <a href="http://www.neoease.com/" target="_blank">NeoEase</a>, <a href="http://www.kgblog.net/" target="_blank">Keengle</a>, <a href="http://colin-young.appspot.com/" target="_blank">Colin Young</a> & <a href="http://mzgblog.appspot.com/" target="_blank">Mozillazg</a>.<!-- | <a href="http://www.google.cn/analytics/zh-CN/" target="_blank">Google Analytics</a>--></div>
+    <div id="copyright">
+        All Rights Reserved &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a> | Powered by <a href="http://xuming.net" target="_blank">Micolog</a> & <a href="http://code.google.com/appengine/" target="_blank">Google App Engine</a>.
+    </div>
+    <div id="themeinfo">
+        Theme by <a href="http://www.neoease.com/" target="_blank">NeoEase</a>, <a href="http://www.kgblog.net/" target="_blank">Keengle</a>, <a href="http://colin-young.appspot.com/" target="_blank">Colin Young</a> & <a href="http://mzgblog.appspot.com/" target="_blank">Mozillazg</a>.<!-- | <a href="http://www.google.cn/analytics/zh-CN/" target="_blank">Google Analytics</a>--></div>
 
 </div>
 <!-- footer END -->
@@ -102,7 +131,7 @@
 </div>
 <!-- wrap END -->
 
-			
+            
 </body>
 
 </html>

@@ -68,9 +68,9 @@
         {%if comment.weburl %}<a target="_blank" href='{{comment.weburl}}' class='url'  rel='external nofollow'>{{comment.author}}</a>{% else %}{{comment.author}}{%endif%}</span> Published on <span class="post_title"><a href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">{{comment.entry.title|escape}}</a></span></div><div class="rc_excerpt">{{comment.shortcontent}}...</div></li>
     {%endfor%} -->
     {% for comment in recent_comments %}
-<li class="rc_item">
-    <div class="rc_avatar">
-        <img title="" ilo-full-src="" alt="" src="{{comment.gravatar_url}}" class="avatar">
+<li id="" class="rc_item">
+    <div class="rc_avatar rc_left">
+        <img title="" ilo-full-src="" alt="" src="{{comment.gravatar_url}}" class="avatar avatar-32 photo">
     </div>
     <div class="rc_info">
         <span class="author_name">
@@ -81,7 +81,7 @@
             {%endif%} 
         </span> | {{comment.date|datetz:"M d, Y"}}</div>
     <div class="rc_excerpt">
-        <a href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">{{comment.shortcontent}}...</a>
+        {{comment.shortcontent}}...<a href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">»</a>
         </div>
 </li>
 
