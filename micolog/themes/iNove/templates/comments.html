@@ -84,8 +84,13 @@
             <textarea name="comment" id="comment" style="width:100%"  rows="10" tabindex="5"></textarea>
         </div>
 <p><em><span style="font-size: medium; font-family: times new roman,times;">Tips: Your can now customize your own avatar at <a target="_blank" href="http://gravatar.com">Gravatar</a></span></em></p>
-<p><input name="submit" type="submit"  id="submit" tabindex="5" value="Submit" />
-</p>
+<div class="clearfix" id="submitbox">
+		<!--<a href="http://demo.neoease.com/comments/feed/" class="feed" rel="nofollow">Subscribe to comments feed</a>-->
+		<div class="submitbutton">
+			<input type="submit" value="Submit Comment" tabindex="5" class="button" id="submit" name="submit" style="">
+		</div>
+</div>
+
 <input type="hidden" name="key" value="{{entry.key}}" />
 </div>
 </form>

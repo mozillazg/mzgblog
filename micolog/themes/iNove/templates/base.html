@@ -44,7 +44,7 @@
 <!-- header END -->
 
 <!-- navigation START -->
-<div id="navigation">
+<div  class="clearfix" id="navigation">
     <!-- menus START -->
     <ul id="menus">
         <li class="current_page_item"><a class="home" title="Home" href="/">Home</a></li>
@@ -58,27 +58,34 @@
             {%else%}<a href="/admin">Login</a>
             {%endif%}
         </li>
+        <li><a href="javascript:void(0);" class="lastmenu"></a>
+        </li>
     </ul>
     <!-- menus END -->
 
     <!-- searchbox START -->
     <div id="searchbox">
-
         <form action="http://www.google.com/search" method="get" target="_blank">
             <div class="content">
-                <input type="text" class="textfield searchtip" name="as_q" size="24" value="" />
-                <input name="as_sitesearch" value="{{blog.domain}}" type="hidden">
-                <input type="submit" class="button" value="" />
-                    
+                <input type="text" class="textfield" name="as_q" size="24" value="" id="searchtxt" />
+                <input type="submit" value="" name="sa" class="button" id="searchbtn" />
+                <input name="as_sitesearch" value="{{blog.domain}}" type="hidden" />
             </div>
         </form>
+  <!--      <form method="get" action="http://www.google.com/cse">
+			<div class="content">
+				<input type="text" size="24" name="q" class="textfield searchtip" id="searchtxt">
+				<input type="submit" value="" name="sa" class="button" id="searchbtn">
+				<input type="hidden" value="014782006753236413342:1ltfrybsbz4" name="cx">
+				<input type="hidden" value="UTF-8" name="ie">
+			</div>
+		</form>-->
     </div>
-
-    <script type="text/javascript">
-    //<![CDATA[
-    var searchbox = MGJS.$("searchbox");
-    var searchtxt = MGJS.getElementsByClassName("textfield", "input", searchbox)[0];
-    var searchbtn = MGJS.getElementsByClassName("button", "input", searchbox)[0];
+<script type="text/javascript">
+//&lt;![CDATA[
+    var searchbox = document.getElementById("searchbox");
+    var searchtxt = document.getElementById("searchtxt");
+    var searchbtn = document.getElementById("searchbtn");
     var tiptext = "Type text to search here...";
     if(searchtxt.value == "" || searchtxt.value == tiptext) {
         searchtxt.className += " searchtip";
@@ -101,8 +108,19 @@
             return false;
         }
     }
-    //]]>
-    </script>
+//]]&gt;
+</script><!--
+    <div id="searchbox">
+        
+        <form action="http://www.google.com/search" method="get" target="_blank">
+            <div class="content">
+                <input type="text" class="textfield searchtip" name="as_q" size="24" value="" />
+                <input name="as_sitesearch" value="{{blog.domain}}" type="hidden">
+                <input type="submit" class="button" value="" />
+                    
+            </div>
+        </form>
+    </div>-->
     <!-- searchbox END -->
 
     <div class="fixed"></div>
