@@ -34,7 +34,7 @@
         <!-- banner END -->
 
     <div id="caption">
-        <h1 id="title"><a href="/">{{ blog.title|escape}}</a></h1>
+        <h1 id="title"><a href="{{ blog.baseurl }}">{{ blog.title|escape}}</a></h1>
         <div id="tagline">{{ blog.subtitle|escape}}</div>
 
     </div>
@@ -47,7 +47,7 @@
 <div  class="clearfix" id="navigation">
     <!-- menus START -->
     <ul id="menus">
-        <li class="current_page_item"><a class="home" title="Home" href="/">Home</a></li>
+        <li class="current_page_item"><a class="home" title="Home" href="{{ blog.baseurl }}">Home</a></li>
         {{self.m_list_pages}}
         <li class="page_item" ><a href="{{blog.feedurl}}">(RSS)</a></li>
         {% block topmenu %}{% endblock %}
@@ -138,7 +138,7 @@
     <a id="gotop" href="#">Go Top</a>
 
     <div id="copyright">
-        All Rights Reserved &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a> | Powered by <a href="http://xuming.net" target="_blank">Micolog</a> & <a href="http://code.google.com/appengine/" target="_blank">Google App Engine</a>.
+        All Rights Reserved &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a> | Powered by <a href="http://micolog.xuming.net/" target="_blank">Micolog</a> & <a href="http://code.google.com/appengine/" target="_blank">Google App Engine</a>.
     </div>
     <div id="themeinfo">
         Theme by <a href="http://www.neoease.com/" target="_blank">NeoEase</a>, <a href="http://www.kgblog.net/" target="_blank">Keengle</a>, <a href="http://colin-young.appspot.com/" target="_blank">Colin Young</a> & <a href="http://mzgblog.appspot.com/" target="_blank">Mozillazg</a>.<!-- | <a href="http://www.google.cn/analytics/zh-CN/" target="_blank">Google Analytics</a>--></div>
