@@ -144,13 +144,13 @@
             {%endfor%}
         </ul>
     </div>
-    
-      <div class="widget">
+    <!--
+      <div class="widget tagcloud">
         <h3>Tag Cloud</h3>
         {% for t in alltags %}
-        <a title="{{ t.tagcount }} pages" href="/tag/{{t.tag|urlencode}}"><span style='font-size:{{ t.tagcount|add:9 }}px;'>{{t.tag}}</span></a>
+        <div class="tags"><a title="{{ t.tagcount }} pages" href="/tag/{{t.tag|urlencode}}"><span style='font-size:{{ t.tagcount|add:9 }}px;'>{{t.tag}}</span></a></div>
         {%endfor%}
-    </div>
+    </div>-->
     
 </div>
 
