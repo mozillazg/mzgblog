@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head profile="http://gmpg.org/xfn/11">
+{%mf head%}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>{% block title %} {{ blog.title|escape}}{% endblock %}</title>
     <link href="/themes/{{ blog.theme_name }}/images/favicon.ico" type="image/ico" rel="shortcut icon">
@@ -18,7 +19,7 @@
     <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/base.js"></script>
 
 {% block head_block %}{% endblock %}
-
+{%endmf%}
 </head>
 
 <body onload="prettyPrint()">
@@ -48,7 +49,7 @@
 <div  class="clearfix" id="navigation">
     <!-- menus START -->
     <ul id="menus">
-        <li class="page_item"><a class="home" title="Home" href="{{ blog.baseurl }}">Home</a></li>
+        <li class="{%if ishome%}current_page_item{%else%}page_item{%endif%}"><a class="home" title="Home" href="{{ blog.baseurl }}">Home</a></li>
         {{self.m_list_pages}}
         <li class="page_item" ><a href="{{blog.feedurl}}">(RSS)</a></li>
         {% block topmenu %}{% endblock %}
@@ -59,6 +60,8 @@
             {%else%}<a href="/admin">Login</a>
             {%endif%}
         </li>
+        {%mf nav_menu%}
+        {%endmf%}
         <li><a href="javascript:void(0);" class="lastmenu"></a>
         </li>
     </ul>
@@ -136,14 +139,16 @@
 
 <!-- footer START -->
 <div id="footer">
+{%mf footer%}
     <a onclick="MGJS.goTop();return false;" href="#" id="gotop" style="">Go Top</a>
 
     <div id="copyright">
         All Rights Reserved &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a> | Powered by <a href="http://micolog.xuming.net/" target="_blank">Micolog</a> & <a href="http://code.google.com/appengine/" target="_blank">Google App Engine</a>.
     </div>
     <div id="themeinfo">
-        Theme by <a href="http://www.neoease.com/" target="_blank">NeoEase</a>, <a href="http://www.kgblog.net/" target="_blank">Keengle</a>, <a href="http://colin-young.appspot.com/" target="_blank">Colin Young</a> & <a href="http://mzgblog.appspot.com/" target="_blank">Mozillazg</a>.<!-- | <a href="http://www.google.cn/analytics/zh-CN/" target="_blank">Google Analytics</a>--></div>
-
+        Theme by <a href="http://www.neoease.com/" target="_blank">NeoEase</a>, <a href="http://www.kgblog.net/" target="_blank">Keengle</a>, <a href="http://colin-young.appspot.com/" target="_blank">Colin Young</a> & <a href="http://mzgblog.appspot.com/" target="_blank">Mozillazg</a>.<!-- | <a href="http://www.google.cn/analytics/zh-CN/" target="_blank">Google Analytics</a>-->
+    </div>
+{%endmf%}
 </div>
 <!-- footer END -->
 

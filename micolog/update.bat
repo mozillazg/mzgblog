@@ -1,2 +1,2 @@
 appcfg.py update ../micolog
-::pause
+pause

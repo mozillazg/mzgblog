@@ -103,7 +103,7 @@
         <h3>Categories</h3>
         <ul>
              {%for cate in categories%}
-            <li class="cat-item cat-item-846"><a href="/category/{{cate.slug}}">{{cate.name}}</a>({{cate.count}})</li>
+            <li class="cat-item cat-item-846"><a href="/category/{{cate.slug|urlencode}}">{{cate.name}}</a>({{cate.count}})</li>
             {%endfor%}
         </ul>
         </div>    
@@ -148,9 +148,40 @@
       <div class="widget tagcloud">
         <h3>Tag Cloud</h3>
         {% for t in alltags %}
-        <div class="tags"><a title="{{ t.tagcount }} pages" href="/tag/{{t.tag|urlencode}}"><span style='font-size:{{ t.tagcount|add:9 }}px;'>{{t.tag}}</span></a></div>
+        <div class="tags"><span class="tags">Tags: </span><a title="{{ t.tagcount }} pages" href="/tag/{{t.tag|urlencode}}"><span style='font-size:{{ t.tagcount|add:9 }}px;'>{{t.tag}}</span></a></div>
         {%endfor%}
     </div>-->
+    
+
+    <div class="widget supportxx">
+        <div id="support-firefox">
+            <p class="line862"><a href='http://www.mozilla.com?from=sfx&amp;uid=0&amp;t=561'><img src='http://sfx-images.mozilla.org/firefox/3.6/125x125.png' alt='Spread Firefox Affiliate Button' border='0' /></a></p>
+        </div>
+        
+        <div id="no-ie">
+            <p class="line862"> <img title="http://mzgphotos.appspot.com/showimage/8002/" src="http://mzgphotos.appspot.com/showimage/8002/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/8002/" ilo-full-src="http://mzgphotos.appspot.com/showimage/8002/" style="width: 60px; height: 63px;"> <br>
+ <img title="ff-eat-ie.gif  http://mzgphotos.appspot.com/showimage/20001/" src="http://mzgphotos.appspot.com/showimage/20001/" class="attachment" alt="ff-eat-ie.gif" ilo-full-src="http://mzgphotos.appspot.com/showimage/20001/" style="width: 180px; height: 180px;"> <br>
+去:<em><a href="http://mzgphotos.appspot.com/showimage/22001/" class="http">FF食IE大图</a></em></p>
+        </div>
+        <div id="no-doc">
+        
+        <!--
+            <p class="line862" style=""> <img title="http://mzgphotos.appspot.com/showimage/18001/" src="http://mzgphotos.appspot.com/showimage/18001/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/18001/" ilo-full-src="http://mzgphotos.appspot.com/showimage/18001/"> <br>
+ <img title="http://mzgphotos.appspot.com/showimage/15001/" src="http://mzgphotos.appspot.com/showimage/15001/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/15001/" ilo-full-src="http://mzgphotos.appspot.com/showimage/15001/"> <br>
+ <img title="http://mzgphotos.appspot.com/showimage/14001/" src="http://mzgphotos.appspot.com/showimage/14001/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/14001/" ilo-full-src="http://mzgphotos.appspot.com/showimage/14001/"> <br>
+ <img title="http://mzgphotos.appspot.com/showimage/13001/" src="http://mzgphotos.appspot.com/showimage/13001/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/13001/" ilo-full-src="http://mzgphotos.appspot.com/showimage/13001/"> <br>
+ <strong><a href="http://mzgphotos.appspot.com/showimage/13001/" class="http">好公民不助長非法拷貝</a></strong><sup>--請停止散佈 .doc</sup></p>
+         -->
+
+    <p class="line862" style=""> <img title="http://people.ofset.org/~ckhung/i/nd/nodoc1.png  http://people.ofset.org/~ckhung/i/nd/nodoc1.png" src="http://people.ofset.org/~ckhung/i/nd/nodoc1.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/nodoc1.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/nodoc1.png"> <br>
+ <img title="http://people.ofset.org/~ckhung/i/nd/fydoc.png  http://people.ofset.org/~ckhung/i/nd/fydoc.png" src="http://people.ofset.org/~ckhung/i/nd/fydoc.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/fydoc.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/fydoc.png"> <br>
+ <img title="http://people.ofset.org/~ckhung/i/nd/nodoc4.png  http://people.ofset.org/~ckhung/i/nd/nodoc4.png" src="http://people.ofset.org/~ckhung/i/nd/nodoc4.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/nodoc4.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/nodoc4.png"> <br>
+ <img title="http://people.ofset.org/~ckhung/i/nd/fydoc1.png  http://people.ofset.org/~ckhung/i/nd/fydoc1.png" src="http://people.ofset.org/~ckhung/i/nd/fydoc1.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/fydoc1.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/fydoc1.png"> <br>
+ <strong><a href="http://people.ofset.org/~ckhung/a/c041.php" class="http">好公民不助長非法拷貝</a></strong><sup>--請停止散佈 .doc</sup></p>
+ 
+        </div>
+    
+    </div>
     
 </div>
 
