@@ -55,14 +55,16 @@ blockquote {
     padding:8px 12px 8px 36px;
     border:1px dashed #CCC;
     background:#F4F5F7 url(images/blockquote.gif) no-repeat 3px 3px;
+    overflow: auto;
 }
 pre {
-    margin: 5px 0px 5px 20px;
-    padding: 8px 12px 8px 36px;
-    border-color: #CCC #CCC #CCC #999;
-    border-style: dashed dashed dashed solid;
-    border-width: 1px 1px 1px 5px;
-    background:#F4F5F7 no-repeat 3px 3px;
+    margin-left:20px ;
+    padding: 3px 15px !important;
+    border-color: #CCC #CCC #CCC #999 !important;
+    border-style: dashed dashed dashed solid !important;
+    border-width: 1px 1px 1px 5px !important;
+    background:#F4F5F7 no-repeat 3px 3px ;
+    overflow:auto;
 }
 img {
     border:0;
