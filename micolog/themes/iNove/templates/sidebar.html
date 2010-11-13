@@ -65,22 +65,22 @@
     <ul>
     <!--{% for comment in recent_comments %}
         <li class="rc_item"><div class="rc_info"><span class="author_name">
-        {%if comment.weburl %}<a target="_blank" href='{{comment.weburl}}' class='url'  rel='external nofollow'>{{comment.author}}</a>{% else %}{{comment.author}}{%endif%}</span> Published on <span class="post_title"><a href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">{{comment.entry.title|escape}}</a></span></div><div class="rc_excerpt">{{comment.shortcontent}}...</div></li>
+        {%if comment.weburl %}<a rel="external" href='{{comment.weburl}}' class='url'  rel='external nofollow'>{{comment.author}}</a>{% else %}{{comment.author}}{%endif%}</span> Published on <span class="post_title"><a href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">{{comment.entry.title|escape}}</a></span></div><div class="rc_excerpt">{{comment.shortcontent}}...</div></li>
     {%endfor%} -->
     {% for comment in recent_comments %}
 <li id="" class="rc_item">
     <div class="rc_avatar rc_left">
-        <a hrf="">
+        <a href="">
             <img title="" ilo-full-src="" alt="" src="{{comment.gravatar_url}}" class="avatar avatar-32 photo">
         </a>
     </div>
     <div class="rc_info">
         <span class="author_name">
-            {%if comment.weburl %}
-            <a target="_blank" href="{{comment.weburl}}" class="url" rel="external nofollow">{{comment.author}}</a>
-            {% else %}
+           <!-- {%if comment.weburl %}-->
+            <a rel="external" href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}" class="url" rel="external nofollow">{{comment.author}}</a>
+            <!--{% else %}
                 {{comment.author}}
-            {%endif%} 
+            {%endif%} -->
         </span> | {{comment.date|datetz:"M d, Y"}}</div>
     <div class="rc_excerpt">
         {{comment.shortcontent}}...<a href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">»</a>
@@ -140,7 +140,7 @@
     <h3>Blog Rolls</h3>
         <ul class='xoxo blogroll'>
             {%for link in blogroll%}
-            <li><a href="{{link.href}}" target="_blank">{{link.linktext}}</a></li>
+            <li><a href="{{link.href}}" rel="external">{{link.linktext}}</a></li>
             {%endfor%}
         </ul>
     </div>
@@ -169,15 +169,6 @@
         
     <div class="widget supportxx">
         <div id="no-doc">
-        
-        <!--
-            <p class="line862" style=""> <img title="http://mzgphotos.appspot.com/showimage/18001/" src="http://mzgphotos.appspot.com/showimage/18001/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/18001/" ilo-full-src="http://mzgphotos.appspot.com/showimage/18001/"> <br>
- <img title="http://mzgphotos.appspot.com/showimage/15001/" src="http://mzgphotos.appspot.com/showimage/15001/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/15001/" ilo-full-src="http://mzgphotos.appspot.com/showimage/15001/"> <br>
- <img title="http://mzgphotos.appspot.com/showimage/14001/" src="http://mzgphotos.appspot.com/showimage/14001/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/14001/" ilo-full-src="http://mzgphotos.appspot.com/showimage/14001/"> <br>
- <img title="http://mzgphotos.appspot.com/showimage/13001/" src="http://mzgphotos.appspot.com/showimage/13001/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/13001/" ilo-full-src="http://mzgphotos.appspot.com/showimage/13001/"> <br>
- <strong><a href="http://people.ofset.org/~ckhung/a/c041.php" class="http">好公民不助長非法拷貝</a></strong><sup>--請停止散佈 .doc</sup></p> -->
-         
-
         <p class="line862" style=""> <img title="http://people.ofset.org/~ckhung/i/nd/nodoc1.png  http://people.ofset.org/~ckhung/i/nd/nodoc1.png" src="http://people.ofset.org/~ckhung/i/nd/nodoc1.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/nodoc1.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/nodoc1.png"> <br>
         <img title="http://people.ofset.org/~ckhung/i/nd/fydoc.png  http://people.ofset.org/~ckhung/i/nd/fydoc.png" src="http://people.ofset.org/~ckhung/i/nd/fydoc.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/fydoc.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/fydoc.png"> <br>
         <img title="http://people.ofset.org/~ckhung/i/nd/nodoc4.png  http://people.ofset.org/~ckhung/i/nd/nodoc4.png" src="http://people.ofset.org/~ckhung/i/nd/nodoc4.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/nodoc4.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/nodoc4.png"> <br>

@@ -2,24 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head profile="http://gmpg.org/xfn/11">
-{%mf head%}
+<!-- {%mf head%} -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>{% block title %} {{ blog.title|escape}}{% endblock %}</title>
-    <link href="/themes/{{ blog.theme_name }}/images/favicon.ico" type="image/ico" rel="shortcut icon">
-    <link href="{{ blog.feedurl }}" title="{{ blog.title|escape}}" type="application/atom+xml" rel="alternate">
+    <link href="/themes/{{ blog.theme_name }}/images/favicon.ico" type="image/ico" rel="shortcut icon" />
+    <link href="{{ blog.feedurl }}" title="{{ blog.title|escape}}" type="application/atom+xml" rel="alternate" />
     <!-- style START -->
+    <link href="/themes/{{ blog.theme_name }}/js/prettify/prettify.css" type="text/css" rel="stylesheet" />
     <!-- default style -->
     <link rel="stylesheet" href="/themes/{{ blog.theme_name }}/style.css" type="text/css" />
+    <link rel="stylesheet" href="/themes/{{ blog.theme_name }}/chinese.css" type="text/css" />
+    <link rel="stylesheet" href="/themes/{{ blog.theme_name }}/wp-recentcomments.css" type="text/css" />
     <!-- style END -->
-
-    <link href="/themes/{{ blog.theme_name }}/js/prettify/prettify.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="/static/js/jquery-1.3.2.min.js"></script>
     <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/prettify/prettify.js"></script>
     <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/menu.js"></script>
     <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/base.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function(){
+                $("a[rel='external'],a[rel='external nofollow']").click(function(){
+                    window.open(this.href);
+                    return false
+                })
+            }
+        )
+    </script>
 
 {% block head_block %}{% endblock %}
-{%endmf%}
+<!-- {%endmf%} -->
 </head>
 
 <body onload="prettyPrint()">
@@ -60,8 +71,8 @@
             {%else%}<a href="/admin">Login</a>
             {%endif%}
         </li>
-        {%mf nav_menu%}
-        {%endmf%}
+        <!-- {%mf nav_menu%}
+        {%endmf%} -->
         <li><a href="javascript:void(0);" class="lastmenu"></a>
         </li>
     </ul>
@@ -69,7 +80,7 @@
 
     <!-- searchbox START -->
     <div id="searchbox">
-        <form action="http://www.google.com/search" method="get" target="_blank">
+        <form action="http://www.google.com/search" method="get" rel="external">
             <div class="content">
                 <input type="text" class="textfield" name="as_q" size="24" value="" id="searchtxt" />
                 <input type="submit" value="" name="sa" class="button" id="searchbtn" />
@@ -116,7 +127,7 @@
 </script><!--
     <div id="searchbox">
         
-        <form action="http://www.google.com/search" method="get" target="_blank">
+        <form action="http://www.google.com/search" method="get" rel="external">
             <div class="content">
                 <input type="text" class="textfield searchtip" name="as_q" size="24" value="" />
                 <input name="as_sitesearch" value="{{blog.domain}}" type="hidden">
@@ -139,18 +150,17 @@
 
 <!-- footer START -->
 <div id="footer">
-{%mf footer%}
-    <a onclick="MGJS.goTop();return false;" href="#" id="gotop" style="">Go Top</a>
+<!-- {%mf footer%} -->
+    <a onclick="MGJS.goTop();return false;" href="#" id="gotop" style="">Top</a>
 
     <div id="copyright">
-        All Rights Reserved &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a> | Powered by <a href="http://micolog.xuming.net/" target="_blank">Micolog</a> & <a href="http://code.google.com/appengine/" target="_blank">Google App Engine</a>.
+        Copyright &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a> | Powered by <a href="http://micolog.xuming.net/" rel="external">Micolog</a> & <a href="http://code.google.com/appengine/" rel="external">Google App Engine</a><!-- | Valid <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS 3</a>-->.
     </div>
     <div id="themeinfo">
-        Theme by <a href="http://www.neoease.com/" target="_blank">NeoEase</a>, <a href="http://www.kgblog.net/" target="_blank">Keengle</a>, <a href="http://colin-young.appspot.com/" target="_blank">Colin Young</a> & <a href="http://mzgblog.appspot.com/" target="_blank">Mozillazg</a>.<!-- | <a href="http://www.google.cn/analytics/zh-CN/" target="_blank">Google Analytics</a>--> | Original materia is licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" class="http"><img title="署名-非商业性使用-相同方式共享 3.0 http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh  http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" class="external_image" alt="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" ilo-full-src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png"></a>
+        Theme by <a href="http://www.neoease.com/" rel="external">NeoEase</a>, <a href="http://www.kgblog.net/" rel="external">Keengle</a>, <a href="http://colin-young.appspot.com/" rel="external">Colin Young</a> & <a href="http://mzgblog.appspot.com/" rel="external">Mozillazg</a>.<!-- | <a href="http://www.google.cn/analytics/zh-CN/" rel="external">Google Analytics</a>--> | Original materia is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="">CC-BY-NC-SA</a>.  
         
-        <!--<a href=" " style="">Original material</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons License</a> permitting non-commercial sharing with attribution. -->
     </div>
-{%endmf%}
+<!-- {%endmf%} -->
 </div>
 <!-- footer END -->
 

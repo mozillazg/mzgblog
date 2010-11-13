@@ -11,13 +11,13 @@
         <li class="comment regularcomment" id="comment-{{comment.key.id}}">
         <div class="author">
             <div class="pic">
-                <a hrf="">
+                <a href="">
                     <img alt='' src='{{comment.gravatar_url}}' class='avatar avatar-40 photo'/>
                 </a>
             </div>
             <div class="name">
                 {%if comment.weburl %}
-                <a id="comment-{{comment.key.id}}" class="url" target="_blank" href="{{comment.weburl}}">{{comment.author}}</a>
+                <a id="comment-{{comment.key.id}}" class="url" rel="external" href="{{comment.weburl}}">{{comment.author}}</a>
                 {% else %}{{comment.author}}{%endif%}
             </div>
         </div>
@@ -83,7 +83,7 @@
             <label for="comment" class="comment">Write your comments in the text area below.</label>
             <textarea name="comment" id="comment" style="width:100%"  rows="10" tabindex="5"></textarea>
         </div>
-<p><em><span style="font-size: medium; font-family: times new roman,times;">Tips: Your can now customize your own avatar at <a target="_blank" href="http://gravatar.com">Gravatar</a></span></em></p>
+<p><em><span style="font-size: medium; font-family: times new roman,times;">Tips: Your can now customize your own avatar at <a rel="external" href="http://gravatar.com">Gravatar</a></span></em></p>
 <div class="clearfix" id="submitbox">
 		<!--<a href="http://demo.neoease.com/comments/feed/" class="feed" rel="nofollow">Subscribe to comments feed</a>-->
 		<div class="submitbutton">
