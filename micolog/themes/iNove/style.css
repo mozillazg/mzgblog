@@ -18,7 +18,7 @@ abbr[title], acronym[title] {
     cursor:help;
 }
 body {
-    font-size:14px;
+    font-size:12px;
     font-family:Verdana, "BitStream vera Sans", Helvetica, "WenQuanYi Micro Hei", 文泉驿正黑, Sans-serif;
     color:#555;
     background:#BEC3C6 url(images/bg.jpg) repeat-x;
@@ -94,7 +94,7 @@ a:hover img {
 }
 select {
     font-family:Arial, "WenQuanYi Micro Hei", 文泉驿正黑;
-    font-size:12px;
+    font-size:11px;
     }
 .wp-caption {
     text-align:center;

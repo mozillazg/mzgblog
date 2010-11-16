@@ -18,8 +18,16 @@
 	<!-- main START -->
 	<div id="main">
 {% if entry %}
-
-    <div class="post" id="post-276">
+    <div id="crumbs" style="">
+		<a href="{{ blog.baseurl }}" rel="nofollow">Home</a>
+		 &gt;
+        {%for cate in entry.categories%}
+        <a rel="category tag" title="View all posts in Uncategorized" href="/category/{{cate.slug}}">{{cate.name}}</a> 
+        {%endfor%}
+        &gt; {{ entry.title|escape }}	
+    </div>
+    
+    <div class="post" id="post-{{entry.key}}">
 		<h2>{{ entry.title|escape }}</h2>
 		<div class="info">
 			<span class="addcomment"><a href="#respond">Write Comments</a></span>

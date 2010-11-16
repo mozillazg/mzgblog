@@ -25,8 +25,17 @@
 	<div id="main">
 {% if entry %}
 
+    <div id="crumbs" style="">
+		<a href="{{ blog.baseurl }}" rel="nofollow">Home</a>
+		 &gt;
+        {%for cate in entry.categories%}
+        <a rel="category tag" title="View all posts in Uncategorized" href="/category/{{cate.slug}}">{{cate.name}}</a> 
+        {%endfor%}
+        &gt; {{ entry.title|escape }}	
+    </div>
+
 	<div class="post" id="post-{{entry.key}}">
-		<h2>{{ entry.title|escape }}</h2>
+        <h2><a class="title" href="/{{ entry.link|escape }}" rel="bookmark">{{ entry.title|escape }}</a></h2>
 		<div class="info">
 
 			<span class="date">{{ entry.date|datetz:"F jS, Y " }}</span>
@@ -43,12 +52,12 @@
 		</div>
 		<div class="under">
 			<span class="categories">Categories: </span><span>
-            {%for cate in entry.categories%} <a href="/category/{{cate.slug}}">{{cate.name}}</a> {%endfor%}
+            {%for cate in entry.categories%} <a rel="category tag" href="/category/{{cate.slug}}">{{cate.name}}</a> {%endfor%}
             </span>	
             {% if entry.tags%}
             <span class="tags">Tags: </span><span>
             {%for tag in entry.tags%}
-            <a href="/tag/{{tag|urlencode}}">{{tag}}</a>&nbsp;{%endfor%}</span>
+            <a rel="tag" href="/tag/{{tag|urlencode}}">{{tag}}</a>&nbsp;{%endfor%}</span>
             {%endif%}
 			{%if self.is_admin%} | <a href="{{entry.edit_url}}">Edit</a>{%endif%} 
             </div>

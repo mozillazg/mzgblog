@@ -18,7 +18,10 @@
     <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/prettify/prettify.js"></script>
     <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/menu.js"></script>
     <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/base.js"></script>
+    <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/jquery.lazyload.mini.js"></script>
+    
     <script type="text/javascript">
+        //&lt;![CDATA[
         $(document).ready(
             function(){
                 $("a[rel='external'],a[rel='external nofollow']").click(function(){
@@ -27,7 +30,18 @@
                 })
             }
         )
+        //]]&gt;
     </script>
+    <script type="text/JavaScript">
+    //&lt;![CDATA[
+        $(function(){
+            $("img").lazyload({
+                effect: "fadeIn",
+            });
+        });
+    //]]&gt;
+    </script>
+
 
 {% block head_block %}{% endblock %}
 <!-- {%endmf%} -->
@@ -124,18 +138,7 @@
         }
     }
 //]]&gt;
-</script><!--
-    <div id="searchbox">
-        
-        <form action="http://www.google.com/search" method="get" rel="external">
-            <div class="content">
-                <input type="text" class="textfield searchtip" name="as_q" size="24" value="" />
-                <input name="as_sitesearch" value="{{blog.domain}}" type="hidden">
-                <input type="submit" class="button" value="" />
-                    
-            </div>
-        </form>
-    </div>-->
+</script>
     <!-- searchbox END -->
 
     <div class="fixed"></div>

@@ -70,20 +70,18 @@
     {% for comment in recent_comments %}
 <li id="" class="rc_item">
     <div class="rc_avatar rc_left">
-        <a href="">
+        <a>
             <img title="" ilo-full-src="" alt="" src="{{comment.gravatar_url}}" class="avatar avatar-32 photo">
         </a>
     </div>
     <div class="rc_info">
         <span class="author_name">
-           <!-- {%if comment.weburl %}-->
-            <a rel="external" href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}" class="url" rel="external nofollow">{{comment.author}}</a>
-            <!--{% else %}
-                {{comment.author}}
-            {%endif%} -->
+           
+            <a rel="nofollow" href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}" class="url" >{{comment.author}}</a>
+            
         </span> | {{comment.date|datetz:"M d, Y"}}</div>
     <div class="rc_excerpt">
-        {{comment.shortcontent}}...<a href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">»</a>
+        {{comment.shortcontent}}...<a rel="nofollow" href="/{{comment.entry.link|escape}}#comment-{{comment.key.id}}">»</a>
         </div>
 </li>
 
@@ -161,7 +159,7 @@
     
     <div class="widget supportxx">
         <div id="no-ie">
-            <p class="line862"> <img title="http://mzgphotos.appspot.com/showimage/8002/" src="http://mzgphotos.appspot.com/showimage/8002/" class="external_image" alt="http://mzgphotos.appspot.com/showimage/8002/" ilo-full-src="http://mzgphotos.appspot.com/showimage/8002/" style="width: 60px; height: 63px;"> <br>
+            <p class="line862"> <img title="http://mzgphotos.appspot.com/showimage/8002/" src="http://mzgphotos.appspot.com/showimage/8002/" class="external_image" alt="no ie" ilo-full-src="http://mzgphotos.appspot.com/showimage/8002/" style="width: 60px; height: 63px;"> <br>
  <img title="fx-eat-ie.gif  http://mzgphotos.appspot.com/showimage/20001/" src="http://mzgphotos.appspot.com/showimage/20001/" class="attachment" alt="fx-eat-ie.gif" ilo-full-src="http://mzgphotos.appspot.com/showimage/20001/" style="width: 180px; height: 180px;"> <br>
 去：<em><a href="http://mzgphotos.appspot.com/showimage/22001/" class="http">Fx 食 IE 大图</a></em></p>
         </div>
@@ -169,10 +167,10 @@
         
     <div class="widget supportxx">
         <div id="no-doc">
-        <p class="line862" style=""> <img title="http://people.ofset.org/~ckhung/i/nd/nodoc1.png  http://people.ofset.org/~ckhung/i/nd/nodoc1.png" src="http://people.ofset.org/~ckhung/i/nd/nodoc1.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/nodoc1.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/nodoc1.png"> <br>
-        <img title="http://people.ofset.org/~ckhung/i/nd/fydoc.png  http://people.ofset.org/~ckhung/i/nd/fydoc.png" src="http://people.ofset.org/~ckhung/i/nd/fydoc.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/fydoc.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/fydoc.png"> <br>
-        <img title="http://people.ofset.org/~ckhung/i/nd/nodoc4.png  http://people.ofset.org/~ckhung/i/nd/nodoc4.png" src="http://people.ofset.org/~ckhung/i/nd/nodoc4.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/nodoc4.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/nodoc4.png"> <br>
-        <img title="http://people.ofset.org/~ckhung/i/nd/fydoc1.png  http://people.ofset.org/~ckhung/i/nd/fydoc1.png" src="http://people.ofset.org/~ckhung/i/nd/fydoc1.png" class="external_image" alt="http://people.ofset.org/~ckhung/i/nd/fydoc1.png" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/fydoc1.png"> <br>
+        <p class="line862" style=""> <img title="http://people.ofset.org/~ckhung/i/nd/nodoc1.png" src="http://people.ofset.org/~ckhung/i/nd/nodoc1.png" class="external_image" alt=" 好公民不助長非法拷貝--請停止散佈 .doc 檔" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/nodoc1.png"> <br>
+        <img title="http://people.ofset.org/~ckhung/i/nd/fydoc.png" src="http://people.ofset.org/~ckhung/i/nd/fydoc.png" class="external_image" alt=" 好公民不助長非法拷貝--請停止散佈 .doc 檔" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/fydoc.png"> <br>
+        <img title="http://people.ofset.org/~ckhung/i/nd/nodoc4.png" src="http://people.ofset.org/~ckhung/i/nd/nodoc4.png" class="external_image" alt="好公民不助長非法拷貝--請停止散佈 .doc 檔" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/nodoc4.png"> <br>
+        <img title="http://people.ofset.org/~ckhung/i/nd/fydoc1.png" src="http://people.ofset.org/~ckhung/i/nd/fydoc1.png" class="external_image" alt="好公民不助長非法拷貝--請停止散佈 .doc 檔" ilo-full-src="http://people.ofset.org/~ckhung/i/nd/fydoc1.png"> <br>
         <strong><a href="http://people.ofset.org/~ckhung/a/c041.php" class="http">好公民不助長非法拷貝</a></strong><sup>--請停止散佈 .doc 檔</sup></p>
         <p ><img alt="帶頭升級 Office 2007? 別當害群之馬" src="http://people.ofset.org/~ckhung/i/n7/odf-no-office-200x.png" ilo-full-src="http://people.ofset.org/~ckhung/i/n7/odf-no-office-200x.png" title="http://people.ofset.org/~ckhung/i/n7/odf-no-office-200x.png" style="width: 81px; height: 31px;"><br>
         <a href="http://people.ofset.org/~ckhung/i/n7/no-office2007.svg">
