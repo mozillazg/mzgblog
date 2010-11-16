@@ -21,7 +21,7 @@
                     <span id="commnetauthor-{{comment.key.id}}">
                 {% endif %}
                 
-                {{comment.author}}
+                    {{comment.author}}
                 
                 {% if comment.weburl %}
                     </a>
@@ -36,15 +36,14 @@
             </div>
             <div class="act">
                 <!-- <a onclick="return reply('{{comment.author}}', {{comment.key.id}});" href="javascript:void(0);"> -->
-                <a href="javascript:void(0);" onclick="reply('commentauthor-{{comment.key.id}}', 'comment-{{comment.key.id}}','comment');"> Reply</a> | Quote
-                <!--<a onclick="return reply('{{comment.author}}', {{comment.key.id}});" href="javascript:void(0);">Quote</a>-->
-                <!--<a onclick="return quote('{{comment.author}}', {{comment.key.id}}, '{{comment.content}}');" href="#commentarea">Quote</a>-->
-                <!--<a onclick="return backcomment('Quote{{comment.author}}<blockquote> {{comment.content}}</blockquote>');" href="#commentarea">Quote</a> -->
-<!--<a onclick="return backcomment('<blockquote><p><strong><a rel="nofollow" href="#comment-{{comment.key.id}}" style="">{{comment.author}}</a> :</strong><br></p> {{comment.content}}</blockquote>');" href="#commentarea"><font color="#800000">Quote</font></a> -->
+                <a href="javascript:void(0);" onclick="reply('{{comment.author}}', 'comment-{{comment.key.id}}', 'comment');">Reply</a> | <!-- Quote -->
+                <a href="javascript:void(0);" onclick="quote('{{comment.author}}', 'comment-{{comment.key.id}}', 'commentbody-{{comment.key.id}}', 'comment');">Quote</a>
             </div>
             <div class="fixed"></div>
             <div class="content">
-                <div id="comment-{{comment.key.id}}">{{comment.content}}</div>
+                <div id="commentbody-{{comment.key.id}}">
+                    {{comment.content}}
+                </div>
             </div>
         </div>
         <div class="fixed"></div>
@@ -77,33 +76,33 @@
                 <label for="url" class="small">Website (Optional)</label>
             </div>
 
-{%ifequal blog.comment_check_type 1%}
-<div id="checkarea">
-<iframe src="/checkcode/"  style="width:90px;height:33px;border:0 none"SCROLLING=no></iframe>
-<input type="text" name="checkret" id="checkret" value="" size="7" tabindex="4" style="height:25px" />
-</div>
-{%endifequal%}
-{%ifequal blog.comment_check_type 2%}
-<div id="checkarea" style="padding-bottom:15px">
+    {%ifequal blog.comment_check_type 1%}
+	    <div id="checkarea">
+	    	<iframe src="/checkcode/"  style="width:90px;height:33px;border:0 none"SCROLLING=no></iframe>
+	    	<input type="text" name="checkret" id="checkret" value="" size="7" tabindex="4" style="height:25px" />
+	    </div>
+    {%endifequal%}
+    {%ifequal blog.comment_check_type 2%}
+    	<div id="checkarea" style="padding-bottom:15px">
 
-<div style="float:left;margin-right:8px;"><label for="checkret"><small>Checkcode:</small></label>
-<input type="text" name="checkret" id="checkret" value="" size="5" tabindex="4" />
-</div>
-<img id='checkimg' src='/checkimg/' style="border:0px;padding:0px;" title='Click to change image' onclick="reloadCheckImage();"/>
-</div>
-{%endifequal%}
-</div>
+    	<div style="float:left;margin-right:8px;"><label for="checkret"><small>Checkcode:</small></label>
+    		<input type="text" name="checkret" id="checkret" value="" size="5" tabindex="4" />
+    	</div>
+    	<img id='checkimg' src='/checkimg/' style="border:0px;padding:0px;" title='Click to change image' onclick="reloadCheckImage();"/>
+    	</div>
+    {%endifequal%}
+    </div>
 
         <div class="row">
             <!-- <label for="comment" class="comment">Write your comments in the text area below.</label> -->
-            <textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+            <textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
         </div>
         
 <p><em><span>Tips: Your can now customize your own avatar at <a rel="external" href="http://gravatar.com">Gravatar</a></span></em></p>
 <div class="clearfix" id="submitbox">
         <!--<a href="http://demo.neoease.com/comments/feed/" class="feed" rel="nofollow">Subscribe to comments feed</a>-->
         <div class="submitbutton">
-            <input type="submit" value="Submit Comment" tabindex="5" class="button" id="submit" name="submit" style="">
+            <input type="submit" value="Submit Comment (Ctrl+Enter)" tabindex="5" class="button" id="submit" name="submit" style="">
         </div>
 </div>
 
@@ -111,145 +110,7 @@
 </div>
 </form>
 <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
-<script type="text/javascript">
-    //&lt;![CDATA[
-    function reloadCheckImage() {
-        document.images["image"].src = "/checkimg/?check=" + Math.random();
-    }
-    commentuser=$.cookie('comment_user');
-       if (commentuser)
-       {
-         //[user,email,url]=commentuser.split('#@#');
-         var tuple=commentuser.split('#@#');
-        var user,email,url;
-        user=tuple[0];
-        email=tuple[1];
-        url=tuple[2];
-         $('#author').val(user);
-         $('#email').val(email);
-         $('#url').val(url);
-       }
-
-   /**
-    * @ 回复
-    * @param authorId        评论者 ID
-    * @param commentId        评论 ID
-    * @param commentBox    评论输入框 ID
-    */
-    function reply(authorId, commentId, commentBox) {
-        // 评论者名字
-        var author = document.getElementById(authorId).innerHTML;
-        // 拼接成 '@评论者名字' 链接
-        var insertStr = '<a href="#' + commentId + '">@' + author.replace(/\t|\n/g, "") + '</a> \n';
-
-        // 追加到评论输入框
-        appendReply(insertStr, commentBox);
-    }
-    
-    /**
-     * 追加到输入框
-     * @param insertStr        追加字符串
-     * @param commentBox    评论输入框 ID
-     */
-    function appendReply(insertStr, commentBox) {
-        // 如果指定的输入框存在, 将它设为目标区域
-        if(document.getElementById(commentBox) && document.getElementById(commentBox).type == 'textarea') {
-            field = document.getElementById(commentBox);
-        // 否则提示不能追加, 并退出操作
-        } else {
-            alert("The comment box does not exist!");
-            return false;
-        }
-     
-        // 如果一次评论中重复回复, 提示并退出操作
-        if (field.value.indexOf(insertStr) > -1) {
-            alert("You've already appended this reply!");
-            return false;
-        }
-     
-        // 如果输入框内无内容 (忽略空格, 跳格和换行), 将输入框内容设置为需要追加的字符串
-        if (field.value.replace(/\s|\t|\n/g, "") == '') {
-            field.value = insertStr;
-        // 否则清除多余换行, 并将字符串追加到输入框中
-        } else {
-            field.value = field.value.replace(/[\n]*$/g, "") + '\n\n' + insertStr;
-        }
-     
-        // 聚焦评论输入框
-        field.focus();
-    }
-    
-       //Name
-  /*  function reply(author,id){
-        backdb=document.getElementById('comment');
-        backdb.focus();
-        backdb.value=backdb.value+'<a rel="nofollow" href=\"#comment-'+id+'\">@'+author+'<\/a>'+'\n';
-        return true;
-    }**/
-    //Quote
-    /*function quote(author,id,content) {
-        backdb = document.getElementById('comment');
-        backdb.focus();
-        backdb.value = backdb.value + '<blockquote><p><strong><a rel="nofollow" href="#comment-'+id+'\">'+author+'<\/a> :<\/strong><br />'+content+'<\/p></blockquote>';
-        return true;
-    }*/
-    //function quote(name,id){
-    //    var quoteMsg=document.getElementById(id).innerHTML;
-    //    document.getElementById("comment").value='Quote'+name+'<blockquote>'+quoteMsg+'</blockquote>';
-    //    return true;
-   // }
-  /*  function add_comment(msg)
-    {
-        comment=$(msg)
-        if (!loadjs)
-        {
-            $("#thecomments").append(comment).show();
-            $.getScript("/static/js/jquery.color.js", function(){
-                comment.animate( { backgroundColor: '#fbc7c7' }, "slow")
-                .animate( { backgroundColor: 'white' }, "slow")
-                loadjs=true;
-            });
-        }else
-        {
-            $("#thecomments").append(comment);
-            comment.animate( { backgroundColor: '#fbc7c7' }, "slow")
-            .animate( { backgroundColor: 'white' }, "slow")
-
-        }
-    }
-       
-  $('#commentform').submit(function(){
-         var form = this;
-           if (form.author)
-             {
-
-                   if (!form.author.value)
-                   {
-                    alert('Please input your name.');
-                    form.author.focus();
-                    return false;
-                   }
-                   if (!form.email.value)
-                   {
-                       alert('Please input the email address.');
-                       form.email.focus();
-                       return false;
-                   }
-           }
-
-               if (!form.comment.value)
-               {
-                   alert('Please leave some reply message.');
-                   form.comment.focus();
-                   return false;
-               }
-
-               return true;
-  });*/
-  //]]&gt;
-</script>
-<!-- <script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/comment.js"></script> -->
-
+<script type="text/javascript" src="/themes/{{ blog.theme_name }}/js/comment.js"></script>
 {% else %}
 <p class="nocomments">Comments are closed.</p>
 {% endif %}
