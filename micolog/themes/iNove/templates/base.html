@@ -34,11 +34,17 @@
     </script>
     <script type="text/JavaScript">
     //&lt;![CDATA[
-        $(function(){
-            $("img").lazyload({
-                effect: "fadeIn",
+        $(function() {
+            $("img").lazyload( {
+                placeholder : "img/grey.gif",
+                failurelimit : 10,
+                effect: "fadeIn"//,
+                //event : "sporty" 
             });
-        });
+        });/*
+        $(window).bind("load", function() { 
+            var timeout = setTimeout(function() {$("img").trigger("sporty")}, 3000);
+        });*/
     //]]&gt;
     </script>
 
@@ -157,12 +163,15 @@
     <a onclick="MGJS.goTop();return false;" href="#" id="gotop" style="">Top</a>
 
     <div id="copyright">
-        Copyright &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a> | Powered by <a href="http://micolog.xuming.net/" rel="external">Micolog</a> & <a href="http://code.google.com/appengine/" rel="external">Google App Engine</a><!-- | Valid <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS 3</a>-->.
+        Copyright &copy; 2010 <a href="{{blog.baseurl}}">{{ blog.title|escape}}</a>. Powered by <a href="http://micolog.xuming.net/" rel="external">Micolog</a> & <a href="http://code.google.com/appengine/" rel="external">Google App Engine</a><!-- | Valid <a href="http://validator.w3.org/check?uri=referer">XHTML 1.1</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS 3</a>-->.
     </div>
     <div id="themeinfo">
-        Theme by <a href="http://www.neoease.com/" rel="external">NeoEase</a>, <a href="http://www.kgblog.net/" rel="external">Keengle</a>, <a href="http://colin-young.appspot.com/" rel="external">Colin Young</a> & <a href="http://mzgblog.appspot.com/" rel="external">Mozillazg</a>.<!-- | <a href="http://www.google.cn/analytics/zh-CN/" rel="external">Google Analytics</a>--> | Original materia is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="">CC-BY-NC-SA</a>.  
-        
+        <a href="http://www.neoease.com/inoves/" rel="external">iNove Theme</a> by <a href="http://www.neoease.com/" rel="external">NeoEase</a>. Original materia is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="">BY-NC-SA</a>.  
     </div>
+    <!-- <div id="themeinfo">
+        <a href="http://www.neoease.com/inoves/" rel="external">iNove Theme</a> by <a href="http://www.neoease.com/" rel="external">NeoEase</a>, <a href="http://www.kgblog.net/" rel="external">Keengle</a>, <a href="http://colin-young.appspot.com/" rel="external">Colin Young</a> & <a href="http://mzgblog.appspot.com/" rel="external">Mozillazg</a>. | <a href="http://www.google.cn/analytics/zh-CN/" rel="external">Google Analytics</a>  | Original materia is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="">CC-BY-NC-SA</a>.  
+        
+    </div> -->
 <!-- {%endmf%} -->
 </div>
 <!-- footer END -->

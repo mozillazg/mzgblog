@@ -22,7 +22,7 @@
 		<a href="{{ blog.baseurl }}" rel="nofollow">Home</a>
 		 &gt;
         {%for cate in entry.categories%}
-        <a rel="category tag" title="View all posts in Uncategorized" href="/category/{{cate.slug}}">{{cate.name}}</a> 
+        <a rel="category tag" title="View all posts in {{cate.name}}" href="/category/{{cate.slug}}">{{cate.name}}</a> 
         {%endfor%}
         &gt; {{ entry.title|escape }}	
     </div>

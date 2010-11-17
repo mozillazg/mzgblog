@@ -29,7 +29,7 @@
 		<a href="{{ blog.baseurl }}" rel="nofollow">Home</a>
 		 &gt;
         {%for cate in entry.categories%}
-        <a rel="category tag" title="View all posts in Uncategorized" href="/category/{{cate.slug}}">{{cate.name}}</a> 
+        <a rel="category tag" title="View all posts in {{cate.name}}" href="/category/{{cate.slug}}">{{cate.name}}</a> 
         {%endfor%}
         &gt; {{ entry.title|escape }}	
     </div>
@@ -38,11 +38,11 @@
         <h2><a class="title" href="/{{ entry.link|escape }}" rel="bookmark">{{ entry.title|escape }}</a></h2>
 		<div class="info">
 
-			<span class="date">{{ entry.date|datetz:"F jS, Y " }}</span>
-													<span class="addcomment"><a href="#respond">Write Comments</a></span>
-				<span class="comments"><a href="#comments">View Comments</a></span>
-				<span>{%if self.is_admin%} | <a href="{{entry.edit_url}}">Edit</a>{%endif%} </span>
-						<div class="fixed"></div>
+            <span class="date">{{ entry.date|datetz:"F jS, Y " }}</span>
+            <span class="addcomment"><a href="#respond">Leave a comment</a></span>
+            <span class="comments"><a href="#comments">Go to comments</a></span>
+            <span>{%if self.is_admin%} | <a href="{{entry.edit_url}}">Edit</a>{%endif%} </span>
+            <div class="fixed"></div>
 		</div>
 		<div class="content">
         <!-- {%mf entry_content %} -->
@@ -66,17 +66,17 @@
 
     <!-- {%mf after_entry_content%} -->
 	<!-- related posts START -->
-	<div id="related_posts"><h3>Related</h3>
     {%if relateposts%}
+	<div id="related_posts"><h3>Related</h3>
+    
     <ul class="related_post">
     {%for post in relateposts%}
                   <li><a href="/{{post.link|escape}}">{{post.title|escape}}</a></li>
     {%endfor%}
     </ul>
-    {% else %}
-        Sorry, no posts matched your criteria.
+    </div>
     {%endif%}
-    </div><div class="fixed"></div>
+    <div class="fixed"></div>
     <!-- {%endmf%} -->
 	<!-- related posts END -->
     
@@ -91,11 +91,17 @@ Trackback:<a href='{{entry.trackbackurl}}'>{{entry.trackbackurl}}</a>
 <div id="comments">
 
 <div id="cmtswitcher">
-			<a id="commenttab" class="curtab" >Comments ({{entry.comments.count}})</a>
-			<a id="readtab" class="curtab" >Views ({{entry.readtimes}})</a>
-				<span class="addcomment"><a href="#respond">Write Comments</a></span>
-
-		<div class="fixed"></div>
+        <a id="commenttab" class="curtab" >Comments ({{entry.comments.count}})</a>
+        <a id="trackbacktab" class="tab" >Trackbacks (0)</a>
+        <span class="addcomment"><a href="#respond">Leave a comment</a></span>
+        
+        {% if blog.allow_trackback and entry.allow_trackback %}
+            <span class="addtrackback"><a href="{{entry.trackbackurl}}" rel="nofollow">Trackback</a></span>
+        {% else %}
+            <span class="addtrackback">Trackback<!-- <a href="trackback" rel="nofollow">Trackback</a> --></span>
+        {% endif %}
+        
+    <div class="fixed"></div>
 </div>
 
 	{% include "comments.html" %}

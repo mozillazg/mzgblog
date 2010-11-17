@@ -1149,3 +1149,9 @@ textarea, button, input, .info, .avatar{
     background-image:url(images/postbox_1col.gif);
 }
 /* one-column END */
+
+#container #main #content {
+    color:#000000;
+    font-size:16px;
+    line-height:200%;
+}
