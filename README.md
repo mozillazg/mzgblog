@@ -1,5 +1,5 @@
 # micolog for mozillazg
-based on micolog : &lta; href="https://github.com/xuming/micolog">https://github.com/xuming/micolog&lt;/a&gt;
+based on micolog : &lt;a rel=&quot;nofollow&quot; href=&quot;http://mzgblog.appspot.com/&quot; style=&quot;&quot;&gt;http://mzgblog.appspot.com/&lt;/a&gt;
 
 
 >1.Change "app.yaml.sample" to "app.yaml"
